@@ -1,3 +1,11 @@
+<?php 
+session_start();
+
+if($_SESSION["Login"]==false)
+{
+	header('Location:index.php');
+}
+?>
 <!DOCTYPE HTML5>
 <html lang="en">
 <head>
