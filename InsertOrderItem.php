@@ -35,7 +35,7 @@ $componentresult = mysql_query($componentquery, $db);
 				}
 				?>
 				</select></br>
-		Quantity: <input type="text" name="Quantity" /></br>
+		Quantity: <input type="text" name="Quantity" pattern="[0-9]+" title="Can only contain numbers" required/></br>
 		
 		</br>
 		<input type="submit" value="Insert" />

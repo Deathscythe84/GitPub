@@ -14,7 +14,7 @@ $sresult = mysql_query($squery, $db);
 	
 	<form name="insertcomp" method="post" action="db/InsertIntoComponent.php">
 	
-		Component_Name: <input type="text" name="CName" /></br>
+		Component_Name: <input type="text" name="CName" pattern="[A-Za-z\s]+" title="Can only contain letters" required/></br>
 		Supplier_ID:  	<select name="SuppID">
 						<option value="0"></option>
 						<?php
@@ -25,7 +25,7 @@ $sresult = mysql_query($squery, $db);
 						</select></br>
 
 						
-		Price: <input type="number" name="price" step="0.01" /></br>
+		Price: <input type="number" name="price" step="0.01" pattern="[0-9]+" title="Can only contain letters" required /></br>
 		
 						<input type="submit" value="Insert" />
 	</form>

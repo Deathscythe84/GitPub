@@ -23,9 +23,9 @@ $pubresult = mysql_query($pubquery, $db);
 				
 				?>
 				</select></br>
-		Date: <input type="text" name="Date" Placeholder="YYYY-MM-DD" /></br>
-		Type: <input type="text" name="Type" /></br>
-		Value: <input type="text" name="Value" /></br>
+		Date: <input type="text" name="Date" Placeholder="YYYY-MM-DD" pattern="[0-9].{3}-[0-9].{1}-[0-9].{1}" title="YYYY-MM-DD" /></br>
+		Type: <input type="text" name="Type" pattern="[A-Za-z\s]+" title="Can only contain letters" /></br>
+		Value: <input type="text" name="Value" pattern="[A-Za-z0-9]+" title="Can only contain letters and numbers" /></br>
 		
 		</br>
 		<input type="submit" value="Insert" />

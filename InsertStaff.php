@@ -43,7 +43,7 @@ $jobresult = mysql_query($jobquery, $db);
 		Address: <input type="text" name="Address" pattern="[A-Za-z]+" title="Can only contain letters" /></br>
 		City: <input type="text" name="City" pattern="[A-Za-z ]+" title="Can only contain letters" /></br>
 		Postcode: <input type="text" name="Postcode" pattern="[A-Za-z0-9]+" title="Can only contain letters and numbers" /></br>
-		Start Date:  <input type="text" name="StartDate" Placeholder="YYYY-MM-DD" pattern="[0-9].{3}-[0-9].{1}-[0-9].{1}" title="YYYY-MM-DD"/></br>
+		Start Date:  <input type="date" name="StartDate" Placeholder="YYYY-MM-DD" pattern="[0-9].{3}-[0-9].{1}-[0-9].{1}" title="YYYY-MM-DD"/></br>
 		Sort Code:  <input type="text" name="Sortcode" pattern="[0-9].{5}" title="Must contain 6 numbers" /></br>
 		Account Number:  <input type="text" name="AccNumber" pattern="[0-9].{7}" title="Must contain 8 numbers" /></br>
 		Password:  <input type="text" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/></br>

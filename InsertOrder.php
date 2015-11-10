@@ -35,8 +35,8 @@ $suppresult = mysql_query($suppquery, $db);
 				}
 				?>
 				</select></br>
-		Date: <input type="text" name="Date" /></br>
-		Total_Cost: <input type="text" name="TCost" /></br>
+		Date: <input type="text" name="Date" Placeholder="YYYY-MM-DD" pattern="[0-9].{3}-[0-9].{1}-[0-9].{1}" title="YYYY-MM-DD" required /></br>
+		Total_Cost: <input type="text" name="TCost" pattern="[0-9.]+" title="Can only contain numbers" required/></br>
 		
 		</br>
 		<input type="submit" value="Insert" />

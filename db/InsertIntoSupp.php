@@ -3,6 +3,7 @@ include "db.php";
 // get content from form
 
 $SName = $_POST["Supp_Name"];
+$SName = addslashes($SNAme);
 $SAdd1 = $_POST["Add1"];
 $SAdd2 = $_POST["Add2"];
 $SAdd3 = $_POST["Add3"];

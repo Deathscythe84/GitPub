@@ -22,10 +22,10 @@ $pubresult = mysql_query($pubquery, $db);
 				
 				?>
 				</select></br>
-		Entertainment Type: <input type="text" name="EntertainmentType" required /></br>
+		Entertainment Type: <input type="text" name="EntertainmentType" pattern="[A-Za-z\s]+" title="Can only contain letters" required /></br>
 		Entertainment Name: <input type="text" name="EntertainmentName" pattern="[A-Za-z\s]+" title="Can only contain letters" required /></br>
-		Entertainment Cost: <input type="text" name="EntertainmentCost" pattern="[0-9.]+" title="Can only contains numbers" required /></br>
-		Cost Duration: <input type="text" name="CostDuration" required /></br>
+		Entertainment Cost: <input type="text" name="EntertainmentCost" pattern="[0-9.]+" title="Can only contain numbers" required /></br>
+		Cost Duration: <input type="text" name="CostDuration" pattern="[A-Za-z0-9]+" title="Can only contain letters and numbers" required /></br>
 		
 		</br>
 		<input type="submit" value="Insert" />
