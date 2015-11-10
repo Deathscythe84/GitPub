@@ -12,9 +12,9 @@ if($ID==null)
 ?>
 </head>
 <body>
-	<h1>Insert Pub</h1>
+	<h1>Insert Staff Role</h1>
 	
-	<form name="insertjob" method="post" action="InsertIntoJob.php">
+	<form name="insertjob" method="post" action="db/InsertIntoJob.php">
 	
 		Job_ID: <input type="text" name="JobID" value="<?php echo$ID;?>" readonly /></br>
 		Job_Title: <input type="text" name="Title" /></br>

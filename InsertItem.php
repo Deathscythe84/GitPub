@@ -16,7 +16,7 @@ if($ID==null)
 <body>
 	<h1>Insert Order Item</h1>
 	
-	<form name="insertorderitem" method="post" action="InsertItem.php">
+	<form name="insertorderitem" method="post" action="db/InsertItem.php">
 	
 		/*
 		Order_ID: <input type="text" name="Orderid" value="<?php echo$ID;?>" readonly /></br>

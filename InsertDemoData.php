@@ -2,24 +2,17 @@
 <head>
 <?php
 include "db.php";
-$query = "Select max(Demographic_Data_ID) AS NextID From Demographic_Data";
-$result = mysql_query($query, $db);
-$ID=0;
-while($row = mysql_fetch_array($result)){
-$ID = $row["NextID"]+1;}
-if($ID==null)
-	{$ID=1;}
+
 
 $pubquery = "select Pub_ID,Pub_Name From Pub";
 $pubresult = mysql_query($pubquery, $db);
 ?>
 </head>
 <body>
-	<h1>Insert Pub</h1>
+	<h1>Insert Demographic Data</h1>
 	
-	<form name="insertDemoData" method="post" action="InsertIntoDemoData.php">
+	<form name="insertDemoData" method="post" action="db/InsertIntoDemoData.php">
 	
-		Demographic_Data_ID: <input type="text" name="Demoid" value="<?php echo$ID;?>" readonly /></br>
 		Pub: 	<select name="PubID">
 				<option value="0"></option>
 				<?php

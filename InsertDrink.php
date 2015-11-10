@@ -2,24 +2,17 @@
 <head>
 <?php
 include "db.php";
-$query = "Select max(Drink_Id) AS NextID From Drink";
-$result = mysql_query($query, $db);
-$ID=0;
-while($row = mysql_fetch_array($result)){
-$ID = $row["NextID"]+1;}
-if($ID==null)
-	{$ID=1;}
+
 ?>
 </head>
 <body>
 	<h1>Insert Drink</h1>
 	
-	<form name="insertDrink" method="post" action="InsertIntoDrink.php">
+	<form name="insertDrink" method="post" action="db/InsertIntoDrink.php">
 	
-		DrinkID: <input type="text" name="DrinkId" value="<?php echo$ID;?>" readonly /></br>
-		Drink Name: <input type="text" name="DrinkName" /></br>
+		Drink Name: <input type="text" name="DrinkName" pattern="[A-Za-z\s]+" title="Can only contain letters" /></br>
 		Drink Type: <input type="text" name="DrinkType" /></br>
-		Percentage of Alcohol: <input type="text" name="PCAlcohol" /></br>
+		Percentage of Alcohol: <input type="text" name="PCAlcohol" pattern="[0-9]" title="Can only contains numbers" required /></br>
 		
 		</br>
 		<input type="submit" value="Insert" />
