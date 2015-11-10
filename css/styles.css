@@ -1,0 +1,167 @@
+html 
+body{
+	background-image:url(../images/pub2.jpg);
+	background-size: cover;
+	overflow: hidden;
+}
+
+input, select, textarea { 
+color: black;
+font-family: Raleway-Medium; 
+}
+
+#submitBtn{
+	color:white;
+}
+
+.socialIcons{
+	font-size: 36px;
+	color:white;
+	padding-right: 5px; 
+}
+
+.socialIcons:hover{
+	color:gold;	
+}
+
+@font-face{
+	font-family:Bebas-Book;
+	src:url(../fonts/BebasNeue-Book.ttf);
+}
+
+@font-face{
+	font-family:Bebas-Bold;
+	src:url(../fonts/BebasNeue-Bold.ttf);
+}
+
+@font-face{
+	font-family:Raleway-Medium;
+	src:url(../fonts/raleway/Raleway-Medium.ttf);
+}
+
+@font-face{
+	font-family:Raleway-Regular;
+	src:url(../fonts/raleway/Raleway-Regular.ttf);
+}
+
+@font-face{
+	font-family:Raleway-Light;
+	src:url(../fonts/raleway/Raleway-Light.ttf);
+}
+
+a:link{ 
+	text-decoration: none;
+	color: inherit;
+}
+a:visited { 
+	text-decoration: none;
+    color: inherit;
+}
+
+#sideBar{
+	height:85%;
+	background-color: #333;
+	margin-right:4%;
+	background-color:rgba(51, 51, 51, 0.9);	
+}
+
+#navList{
+	margin-top: 50%;
+}
+
+.navOption{
+	margin-top: 25%;
+	padding: 2%;
+	list-style-type: none;
+	width:inherit;
+	text-align: center;
+	color:white;
+	font-family:Bebas-Bold;
+	font-size:20px;
+}
+
+.navOption:hover{
+	background-color: gold;
+	color:#333;
+}
+
+.navDecor{
+	padding: 10px;
+	margin-top: 20%;
+	margin-left: 17%; 
+	width:1%;
+	height:1%;
+}
+
+#loginBox{
+	background-color:rgba(51, 51, 51, 0.9);
+	margin-top: 10%;
+	margin-left: 15%;
+	text-align: center;
+	color:white;
+	font-family: Raleway-Light;
+}
+
+#loginBox h2{
+	margin-top:5%;
+	font-family:Bebas-Book;
+	color: gold;
+}
+
+#loginForm{
+	margin-left: 20%;
+}
+
+#content{
+	background-color:rgba(51, 51, 51, 0.9);
+	min-height:85%;
+	margin-left:0;
+	font-family: Raleway-Light;
+	color:white;
+}
+
+#titleBar{
+	background-color:rgba(51, 51, 51, 0.9);
+	margin-bottom:2%;
+	padding:1px;
+	border-bottom: 1px solid gold;
+}
+
+.logo{
+	margin-top:1%;
+	margin-left:4.5%;
+	color:white;
+	display:inline-block;
+	font-family:Bebas-Book;
+}
+
+.logo:hover{
+	color:gold;
+}
+
+.pageTitle{
+	margin-top:1%;
+	display:inline-block;
+	margin-left:38%;
+	color:white;
+	font-family: Bebas-Bold;
+}
+
+#contentTitle{
+	margin-top:10%;
+	margin-bottom:3%;
+	font-family: Raleway-Light;
+	text-align: center;
+	color:white;
+}
+
+#contentLeft{
+	text-align: left;
+}
+
+#contentRight{
+	text-align: left;
+}
+
+
+
