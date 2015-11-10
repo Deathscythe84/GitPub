@@ -35,7 +35,7 @@ $foodresult = mysql_query($foodquery, $db);
 				
 				?>
 				</select></br>
-		Price: <input type="text" name="Price" pattern="[0-9.]+" title="Can only contains numbers" required /></br>
+		Price: <input type="text" name="Price" pattern="[0-9.]+" title="Can only contain numbers" required /></br>
 		
 		</br>
 		<input type="submit" value="Insert" />

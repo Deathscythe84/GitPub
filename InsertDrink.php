@@ -10,9 +10,9 @@ include "db/db.php";
 	
 	<form name="insertDrink" method="post" action="db/InsertIntoDrink.php">
 	
-		Drink Name: <input type="text" name="DrinkName" pattern="[A-Za-z\s]+" title="Can only contain letters" /></br>
-		Drink Type: <input type="text" name="DrinkType" /></br>
-		Percentage of Alcohol: <input type="text" name="PCAlcohol" pattern="[0-9]" title="Can only contains numbers" required /></br>
+		Drink Name: <input type="text" name="DrinkName" pattern="[A-Za-z\s]+" title="Can only contain letters" required /></br>
+		Drink Type: <input type="text" name="DrinkType" pattern="[A-Za-z\s]+" title="Can only contain letters" required /></br>
+		Percentage of Alcohol: <input type="text" name="PCAlcohol" pattern="[0-9]+" title="Can only contains numbers" required /></br>
 		
 		</br>
 		<input type="submit" value="Insert" />

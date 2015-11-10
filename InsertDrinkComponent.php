@@ -36,7 +36,7 @@ $compresult = mysql_query($compquery, $db);
 						</select></br>
 		
 		
-		Quantity: <input type="text" name="quantity" /></br>
+		Quantity: <input type="text" name="quantity" pattern="[0-9]+" title="Can only contain numbers" required /></br>
 		
 		<input type="submit" value="Insert" />
 	</form>

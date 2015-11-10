@@ -15,7 +15,7 @@ $drinkresult = mysql_query($drinkquery, $db);
 	
 	<form name="insertDrinksList" method="post" action="db/InsertIntoDrinkList.php">
 	
-				Drink ID: <select name="DrinkId">
+		Drink ID:<select name="DrinkId">
 				<option value="0"></option>
 				<?php
 				
@@ -35,7 +35,7 @@ $drinkresult = mysql_query($drinkquery, $db);
 				
 				?>
 				</select></br>
-		Price: <input type="text" name="Price" pattern="[0-9.]+" title="Can only contains numbers" required /></br>
+		Price: <input type="text" name="Price" pattern="[0-9.]+" title="Can only contain numbers" required /></br>
 		
 		</br>
 		<input type="submit" value="Insert" />

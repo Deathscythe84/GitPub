@@ -2,6 +2,7 @@
 include "db.php";
 // get content from form
 $PName = $_POST["Pname"];
+$PName = addslashes($PName);
 $PAdd1 = $_POST["Padd1"];
 $PAdd2 = $_POST["Padd2"];
 $PAdd3 = $_POST["Padd3"];
