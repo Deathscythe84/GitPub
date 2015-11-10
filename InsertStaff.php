@@ -1,14 +1,8 @@
 <html>
 <head>
 <?php
-include "db.php";
-$query = "Select max(Staff_ID) AS NextID From Staff";
-$result = mysql_query($query, $db);
-$ID=0;
-while($row = mysql_fetch_array($result)){
-$ID = $row["NextID"]+1;}
-if($ID==null)
-	{$ID=1;}
+include "db/db.php";
+
 
 $pubquery = "select Pub_ID,Pub_Name From Pub";
 $pubresult = mysql_query($pubquery, $db);
@@ -19,11 +13,11 @@ $jobresult = mysql_query($jobquery, $db);
 ?>
 </head>
 <body>
-	<h1>Insert Pub</h1>
+	<h1>Insert Staff Member</h1>
 	
-	<form name="insertstaff" method="post" action="InsertIntoStaff.php">
+	<form name="insertstaff" method="post" action="db/InsertIntoStaff.php">
 	
-		Staff_ID: <input type="text" name="Staffid" value="<?php echo$ID;?>" readonly /></br>
+
 		Pub: 	<select name="PubID">
 				<option value="0"></option>
 				<?php

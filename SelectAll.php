@@ -1,7 +1,7 @@
 <html>
 <head>
 <?php
-include "db.php";
+include "db/db.php";
 
 $pubquery = "select * From Pub";
 $pubresult = mysql_query($pubquery, $db);

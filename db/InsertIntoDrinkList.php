@@ -2,7 +2,7 @@
 include "db.php";
 // get content from form
 $DID = (int) $_POST["DrinkId"];
-$PID = $_POST["PubId"];
+$PID = $_POST["PubID"];
 $Price = $_POST["Price"];
 
 // SQL Insert using variable names
