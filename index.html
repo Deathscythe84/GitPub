@@ -17,6 +17,7 @@
 
 	<!-- Scripts -->
 	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/typed.min.js"></script>
 	<!-- <script src="js/scripts.js"></script> -->
 
 	
@@ -25,48 +26,24 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div id="titleBar"class="twelve columns">
-				<div class="logo">
-					<a href="#"><h2>[ GitPub ]</h2></a>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div id="sideBar" class="two columns">
-				<!-- Navigation Options -->
-				<ul id="navList">
-					<li class="navOption"><a href="#">Home</a></li>
-					<li class="navOption"><a href="#">Orders</a></li>
-					<li class="navOption"><a href="#">Search</a></li>
-					<li class="navOption"><a href="#">Gallery</a></li>
-					<li class="navOption"><a href="login.html">Logout</a></li>
-				</ul>
-			</div>
-			<div id="content" class="ten columns">
+			<div id="loginBox" class=" fadeIn two-thirds column">
 				<div class="container">
-					<div class="row">
-						<div id="contentTitle" class="twelve columns">
-							<h3>A Content Title!</h3> <!--Content Title goes here!-->
+					<h2>[ GitPub ]</h2>
+					<form id="loginForm">
+						<div class="row">
+							<div class="nine columns">
+								<label for="loginInput">Username</label>
+								<input id="inputField" class="u-full-width" type="text" placeholder="..." id="loginInput">
+								<label for="loginInput">Password</label>
+								<input id="inputField" class="u-full-width" type="password" placeholder="..." id="loginInput">
+								<a id="submitBtn" class="button" href="home.html">Login</a>
+								<div>
+									<a class="socialIcons"href="https://github.com/kzjasta"><i class="fi-social-github"></i></a>
+									<a class="socialIcons"href="https://facebook.com"><i class="fi-social-facebook"></i></a>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
-							<p>
-								The proposed legislation, which will have to pass votes in both houses of Parliament, would order communications companies, such as broadband firms, to hold basic details of the services that someone has accessed online - something that has been repeatedly proposed but never enacted.
-							</p>
-							<p>
-								This duty would include forcing firms to hold a schedule of which websites someone visits and the apps they connect to through computers, smartphones, tablets and other devices.
-							</p>
-						</div>
-						<div id="contentRight" class="one-half column"> <!--Display your content in this section-->
-							<p>
-								The proposed legislation, which will have to pass votes in both houses of Parliament, would order communications companies, such as broadband firms, to hold basic details of the services that someone has accessed online - something that has been repeatedly proposed but never enacted.
-							</p>
-							<p>
-								This duty would include forcing firms to hold a schedule of which websites someone visits and the apps they connect to through computers, smartphones, tablets and other devices.
-							</p>
-						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
