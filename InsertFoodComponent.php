@@ -1,7 +1,7 @@
 <html>
 <head>
 <?php
-include "db.php";
+include "db/db.php";
 
 $foodquery = "select Food_ID,Food_Name From Food";
 $foodresult = mysql_query($foodquery, $db);

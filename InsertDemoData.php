@@ -1,7 +1,7 @@
 <html>
 <head>
 <?php
-include "db.php";
+include "db/db.php";
 
 
 $pubquery = "select Pub_ID,Pub_Name From Pub";

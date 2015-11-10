@@ -1,7 +1,7 @@
 <html>
 <head>
 <?php
-include "db.php";
+include "db/db.php";
 
 ?>
 </head>

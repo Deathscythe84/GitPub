@@ -1,7 +1,7 @@
 <html>
 <head>
 <?php
-include "db.php";
+include "db/db.php";
 
 $drinkquery = "select Drink_ID,Drink_Name From Drink";
 $drinkresult = mysql_query($drinkquery, $db);

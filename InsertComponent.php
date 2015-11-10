@@ -1,7 +1,7 @@
 <html>
 <head>
 <?php
-include "db.php";
+include "db/db.php";
 
 	
 $squery = "select Supplier_ID,Supplier_Name From Supplier";

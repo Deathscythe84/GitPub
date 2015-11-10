@@ -1,7 +1,7 @@
 <html>
 <head>
 <?php
-include "db.php";
+include "db/db.php";
 
 $orderquery = "select Order_ID From Orders";
 $orderresult = mysql_query($orderquery, $db);
