@@ -2,6 +2,8 @@
 <head>
 </head>
 <body>
+<?php
+//phpinfo();?>
 	<h1>Insert Options</h1>
 	<a href="InsertPub.php">Insert Bar</a></br>
 	<a href="InsertJob.php">Insert Job</a></br>

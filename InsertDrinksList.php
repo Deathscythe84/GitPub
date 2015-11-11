@@ -25,8 +25,8 @@ $drinkresult = mysql_query($drinkquery, $db);
 				
 				?>
 				</select></br>
-		Pub ID: <select name="PubID">
-				<option value="0"></option>
+		Pub ID: <select required name="PubID">
+				<option value=""></option>
 				<?php
 				
 				while($pubrow = mysql_fetch_array($pubresult)){

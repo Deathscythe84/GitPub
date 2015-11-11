@@ -12,8 +12,8 @@ $pubresult = mysql_query($pubquery, $db);
 	
 	<form name="insertEntertainment" method="post" action="db/InsertIntoEntertainment.php">
 
-		Pub: 	<select name="PubID">
-				<option value="0"></option>
+		Pub: 	<select required name="PubID">
+				<option value=""></option>
 				<?php
 				
 				while($pubrow = mysql_fetch_array($pubresult)){
@@ -23,7 +23,7 @@ $pubresult = mysql_query($pubquery, $db);
 				?>
 				</select></br>
 		Entertainment Type: <input type="text" name="EntertainmentType" pattern="[A-Za-z\s]+" title="Can only contain letters" required /></br>
-		Entertainment Name: <input type="text" name="EntertainmentName" pattern="[A-Za-z\s]+" title="Can only contain letters" required /></br>
+		Entertainment Name: <input type="text" name="EntertainmentName" pattern="[A-Za-z\s']+" title="Can only contain letters" required /></br>
 		Entertainment Cost: <input type="text" name="EntertainmentCost" pattern="[0-9.]+" title="Can only contain numbers" required /></br>
 		Cost Duration: <input type="text" name="CostDuration" pattern="[A-Za-z0-9]+" title="Can only contain letters and numbers" required /></br>
 		

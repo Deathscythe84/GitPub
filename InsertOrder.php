@@ -17,8 +17,8 @@ $suppresult = mysql_query($suppquery, $db);
 	
 	<form name="insertorder" method="post" action="db/InsertIntoOrder.php">
 	
-		Supplier: 	<select name="Supplier">
-				<option value="0"></option>
+		Supplier: 	<select required name="Supplier">
+				<option value=""></option>
 				<?php
 				
 				while($supprow = mysql_fetch_array($suppresult)){
@@ -26,8 +26,8 @@ $suppresult = mysql_query($suppquery, $db);
 				}
 				?>
 				</select></br>
-		Pub: 	<select name="PubID">
-				<option value="0"></option>
+		Pub: 	<select required name="PubID">
+				<option value=""></option>
 				<?php
 				
 				while($pubrow = mysql_fetch_array($pubresult)){
@@ -35,7 +35,7 @@ $suppresult = mysql_query($suppquery, $db);
 				}
 				?>
 				</select></br>
-		Date: <input type="text" name="Date" Placeholder="YYYY-MM-DD" pattern="[0-9].{3}-[0-9].{1}-[0-9].{1}" title="YYYY-MM-DD" required /></br>
+		Date: <input type="date" name="Date" Placeholder="YYYY-MM-DD" pattern="[0-9].{3}-[0-9].{1}-[0-9].{1}" title="YYYY-MM-DD" required /></br>
 		Total_Cost: <input type="text" name="TCost" pattern="[0-9.]+" title="Can only contain numbers" required/></br>
 		
 		</br>

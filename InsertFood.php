@@ -10,7 +10,7 @@ include "db/db.php";
 	
 	<form name="insertfood" method="post" action="db/InsertIntoFood.php">
 	
-		Food_Name: <input type="text" name="Fname" pattern="[A-Za-z]+" title="Can only contain letters" required /></br>
+		Food_Name: <input type="text" name="Fname" pattern="[A-Za-z/s']+" title="Can only contain letters" required /></br>
 		Food_Type: <input type="text" name="Ftype" pattern="[A-Za-z]+" title="Can only contain letters" required /></br>
 		Is Vegetarian: 	<select name="FVeget"> 
 				<option value="0">No</option>

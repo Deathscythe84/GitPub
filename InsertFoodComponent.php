@@ -26,8 +26,8 @@ $compresult = mysql_query($compquery, $db);
 						?>
 						</select></br>
 				
-		Food_ID: 		<select name="FoodID">
-						<option value="0"></option>
+		Food_ID: 		<select required name="FoodID">
+						<option value=""></option>
 						<?php
 						while($foodrow = mysql_fetch_array($foodresult)){
 							echo "<option value=".$foodrow['Food_ID'].">".$foodrow['Food_Name']."</option>";

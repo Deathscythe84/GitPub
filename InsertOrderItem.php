@@ -26,8 +26,8 @@ $componentresult = mysql_query($componentquery, $db);
 				?>
 				</select></br>
 		
-		Component: 	<select name="ComponentID">
-				<option value="0"></option>
+		Component: 	<select required name="ComponentID">
+				<option value=""></option>
 				<?php
 				
 				while($Componentrow = mysql_fetch_array($componentresult)){

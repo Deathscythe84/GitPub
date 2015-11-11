@@ -47,7 +47,7 @@ if($_SESSION["Login"]==false)
 					<li class="navOption"><a href="#">Orders</a></li>
 					<li class="navOption"><a href="#">Search</a></li>
 					<li class="navOption"><a href="#">Gallery</a></li>
-					<li class="navOption"><a href="index.html">Logout</a></li>
+					<li class="navOption"><a href="index.php">Logout</a></li>
 				</ul>
 			</div>
 			<div id="content" class="ten columns">

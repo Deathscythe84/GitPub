@@ -2,6 +2,7 @@
 include "db.php";
 // get content from form
 $FName = $_POST["Fname"];
+$FName = addslashes($FName);
 $FType = $_POST["Ftype"];
 
 $FVeget = $_POST["FVeget"];

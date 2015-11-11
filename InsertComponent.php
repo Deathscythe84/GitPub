@@ -15,8 +15,8 @@ $sresult = mysql_query($squery, $db);
 	<form name="insertcomp" method="post" action="db/InsertIntoComponent.php">
 	
 		Component_Name: <input type="text" name="CName" pattern="[A-Za-z\s]+" title="Can only contain letters" required/></br>
-		Supplier_ID:  	<select name="SuppID">
-						<option value="0"></option>
+		Supplier_ID:  	<select required name="SuppID">
+						<option value=""></option>
 						<?php
 						while($srow = mysql_fetch_array($sresult)){
 							echo "<option value=".$srow['Supplier_ID'].">".$srow['Supplier_Name']."</option>";
