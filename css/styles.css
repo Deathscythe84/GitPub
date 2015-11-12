@@ -6,12 +6,17 @@ body{
 }
 
 input, select, textarea { 
-color: black;
-font-family: Raleway-Medium; 
+	color: black;
+	font-family: Raleway-Medium; 
 }
 
-#submitBtn{
+input[type=submit],button{
 	color:white;
+}
+
+table{
+	color: white;
+	font-family: Raleway-Light;
 }
 
 .socialIcons{

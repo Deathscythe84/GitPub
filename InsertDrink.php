@@ -88,7 +88,7 @@ if($_SESSION["Login"]==false)
 	}
 	function updateComponents()
 	{
-		var data = 'DrinkID='+document.getElementById("DrinkID").value;;
+		var data = 'DrinkID='+document.getElementById("DrinkID").value;
 		
 		if(window.XMLHttpRequest){
 			xmlhttp = new XMLHttpRequest();
@@ -141,7 +141,7 @@ if($_SESSION["Login"]==false)
 
 								Drink Name: </br><input type="text" id="DrinkName" pattern="[A-Za-z\s']+" title="Can only contain letters" required /></br>
 								Drink Type: </br><input type="text" id="DrinkType" pattern="[A-Za-z\s]+" title="Can only contain letters" required /></br>
-								Percentage of Alcohol: </br><p></p><input type="text" id="PCAlcohol" pattern="[0-9]+" title="Can only contains numbers" required /></br>
+								Percentage of Alcohol: </br><input type="text" id="PCAlcohol" pattern="[0-9]+" title="Can only contains numbers" required /></br>
 								
 								</br><input type="submit" value="Insert Drink" />
 							</form>
