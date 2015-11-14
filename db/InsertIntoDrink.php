@@ -7,12 +7,13 @@ $DType = $_POST["DrinkType"];
 $PAlcohol = $_POST["PCAlcohol"];
 
 // SQL Insert using variable names
-mysql_query("INSERT INTO Drink (Drink_Name, Drink_Type, PC_Alcohol) VALUES ('$DName', '$DType', '$PAlcohol')", $db);
-$ID = mysql_insert_id();
+
+$Row = mysql_query("CALL insertDrink('$DName', '$DType', '$PAlcohol', @Return)" , $db);
+//$ID = mysql_insert_id();
 mysql_close($db);
 
-
+$ID = mysql_fetch_row($Row);
 echo "	<h3>".$DName."</h3>
-		<input type='hidden' id='drinkid' value=".$ID." />
-		<table id='drinkcomps'><tr><th>Component</th><th>Quantity</th></tr></table>";
+		<input type='hidden' id='drinkid' value=".$ID[0]." />
+		<table id='drinkcomptable'><tr><th>Component</th><th>Quantity</th></tr></table>";
 ?>

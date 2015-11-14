@@ -9,7 +9,7 @@ $TCost = $_POST["TCost"];
 // SQL Insert using variable names
 
 
-mysql_query("INSERT INTO Orders (Supplier_ID, Pub_ID, Date, Total_Cost) VALUES ('$SID', '$PID', '$Date', '$TCost')", $db);
+mysql_query("CALL insertOrders('$SID', '$PID', '$Date', '$TCost')", $db);
 
 mysql_close($db);
 ?>

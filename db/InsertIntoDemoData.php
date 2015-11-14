@@ -9,7 +9,7 @@ $DDValue = $_POST["Value"];
 
 
 // SQL Insert using variable names
-mysql_query("INSERT INTO Demographic_Data (Pub_ID, Date, Demographic_Type, Demographic_Value) VALUES ('$PID', '$DDDate', '$DDType', '$DDValue')", $db);
+mysql_query("CALL insertDemoData('$PID', '$DDDate', '$DDType', '$DDValue')", $db);
 
 mysql_close($db);
 ?>

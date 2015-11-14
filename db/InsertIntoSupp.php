@@ -13,7 +13,7 @@ $SCode = $_POST["PCode"];
 
 
 // SQL Insert using variable names
-mysql_query("INSERT INTO Supplier (Supplier_Name, Address1, Address2, Address3, City, Country, Postcode) VALUES ('$SName', '$SAdd1', '$SAdd2', '$SAdd3', '$SCity', '$SCountry', '$SCode')", $db);
+mysql_query("CALL insertSupplier ('$SName', '$SAdd1', '$SAdd2', '$SAdd3', '$SCity', '$SCountry', '$SCode')", $db);
 
 mysql_close($db);
 ?>

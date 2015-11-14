@@ -33,79 +33,7 @@ session_start();
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- <script src="js/scripts.js"></script> -->
 
-	<script>
-	function addDrink()
-	{	
-		var data = 'DrinkName='+document.getElementById("DrinkName").value+
-		'&DrinkType='+document.getElementById("DrinkType").value+
-		'&PCAlcohol='+document.getElementById("PCAlcohol").value;
-
-		if(window.XMLHttpRequest){
-			xmlhttp = new XMLHttpRequest();
-		} else {
-			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-		
-		xmlhttp.onreadystatechange= function(){
-			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
-				document.getElementById("contentLeft").innerHTML = xmlhttp.responseText;
-				document.getElementById("DrinkID").value=document.getElementById("drinkid").value;
-				updateComponents();
-				$('#insertdrinkcomp').show();
-			}
-		}
-		xmlhttp.open("POST","db/InsertIntoDrink.php",true);
-		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		xmlhttp.send(data);
-	}
-	function addComponent()
-	{
-		var data = 'DrinkID='+document.getElementById("DrinkID").value+
-		'&CompID='+document.getElementById("CompID").value+
-		'&quantity='+document.getElementById("quantity").value;
-
-		document.getElementById("quantity").value="";
-		
-		if(window.XMLHttpRequest){
-			xmlhttp = new XMLHttpRequest();
-		} else {
-			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-		
-		xmlhttp.onreadystatechange= function(){
-			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
-				document.getElementById("drinkcomps").innerHTML = xmlhttp.responseText;
-				updateComponents();
-			}
-		}
-		xmlhttp.open("POST","db/InsertIntoDrinkComponent.php",true);
-		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		xmlhttp.send(data);
-	}
-	function insertComponent()
-	{
-		var myWindow = window.open("InsertComponent.php","width=400","height=400");
-	}
-	function updateComponents()
-	{
-		var data = 'DrinkID='+document.getElementById("DrinkID").value;
-		
-		if(window.XMLHttpRequest){
-			xmlhttp = new XMLHttpRequest();
-		} else {
-			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-		
-		xmlhttp.onreadystatechange= function(){
-			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
-				document.getElementById("CompID").innerHTML = xmlhttp.responseText;
-			}
-		}
-		xmlhttp.open("POST","db/UpdateComponentList.php",true);
-		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		xmlhttp.send(data);
-	}
-	</script>
+	<script src="js/AJAX.js"></script>
 </head>
 
 <body>
@@ -147,7 +75,7 @@ session_start();
 							</form>
 						</div>
 						<div id="contentRight" class="one-half column"> <!--Display your content in this section-->
-							<form id="insertdrinkcomp" hidden action="javascript:addComponent()">
+							<form id="insertdrinkcomp" hidden action="javascript:addComponentToDrink()">
 
 								<input type="hidden" name="DrinkID" id="DrinkID" required/>
 							
@@ -155,7 +83,7 @@ session_start();
 											<select required id="CompID">
 											</select>
 											
-											<span class="refreshIcon" onclick="updateComponents()"><i class="fi-refresh"></i></span></br>
+											<span class="refreshIcon" onclick="updateComponentsForDrink()"><i class="fi-refresh"></i></span></br>
 											
 								Quantity: 	</br><input type="text" id="quantity" pattern="[0-9]+" title="Can only contain numbers" required /></br>
 								<input type="submit" value="Add Component" />

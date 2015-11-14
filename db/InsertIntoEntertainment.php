@@ -8,7 +8,7 @@ $EName = addslashes($EName);
 $ECost = $_POST["EntertainmentCost"];
 $CDur = $_POST["CostDuration"];
 // SQL Insert using variable names
-mysql_query("INSERT INTO Entertainment (Pub_ID, Entertainment_Type, Entertainment_Name, Entertainment_Cost, Cost_Duration) VALUES ('$PID', '$EType', '$EName', '$ECost', '$CDur')", $db);
+mysql_query("CALL insertEnter('$PID', '$EType', '$EName', '$ECost', '$CDur')", $db);
 
 mysql_close($db);
 ?>
