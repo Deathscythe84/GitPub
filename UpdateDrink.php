@@ -58,6 +58,23 @@ session_start();
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send(data);
 	}
+	function getDrinks()
+	{	
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("DrinkList").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","db/GetDrinks.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
 	function addComponent()
 	{
 		var data = 'DrinkID='+document.getElementById("DrinkID").value+
@@ -101,10 +118,107 @@ session_start();
 				document.getElementById("CompID").innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open("POST","db/UpdateComponentList.php",true);
+		xmlhttp.open("POST","db/UpdateComponentList.php",false);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send(data);
 	}
+	function getComponents()
+	{
+		if(document.getElementById("DrinkList").value!="")
+		{
+			var data = 'DrinkID='+document.getElementById("DrinkList").value;
+			if(window.XMLHttpRequest){
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			xmlhttp.onreadystatechange= function(){
+				if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+					document.getElementById("drinkcomps").innerHTML = xmlhttp.responseText;
+					document.getElementById("DrinkID").value=document.getElementById("DrinkList").value;
+					updateComponents();
+					getComponentsForDrink();
+					$('#contentRight').show();
+				}
+			}
+			xmlhttp.open("POST","db/UpdateDrinkComponentTable.php",true);
+			xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xmlhttp.send(data);
+		}
+		else
+		{
+			$('#contentRight').hide();
+			document.getElementById("drinkcomps").innerHTML = "<tr><th>Component</th><th>Quantity</th></tr>";
+			document.getElementById("DrinkID").value=document.getElementById("DrinkList").value;
+		}
+	}
+	function getComponentsForDrink()
+	{
+			var data = 'DrinkID='+document.getElementById("DrinkList").value;
+			if(window.XMLHttpRequest){
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			xmlhttp.onreadystatechange= function(){
+				if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+					document.getElementById("removeComp").innerHTML = xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("POST","db/GetComponentsForDrink.php",false);
+			xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xmlhttp.send(data);
+	}
+	function RemoveComponent()
+	{
+		if(document.getElementById("removeComp").value!="")
+		{
+			var data = 'DrinkID='+document.getElementById("DrinkID").value+
+						'&ComponentID='+document.getElementById("removeComp").value;
+			if(window.XMLHttpRequest){
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			xmlhttp.onreadystatechange= function(){
+				if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+					updateComponents();
+					getComponents();
+				}
+			}
+			xmlhttp.open("POST","db/RemoveComponent.php",true);
+			xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xmlhttp.send(data);
+		}
+	}
+	function RemoveDrink()
+	{
+		if(document.getElementById("DrinkID").value!="")
+		{
+			var data = 'DrinkID='+document.getElementById("DrinkID").value;
+						
+			if(window.XMLHttpRequest){
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			xmlhttp.onreadystatechange= function(){
+				if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+					getDrinks();
+					$('#contentRight').hide();
+					document.getElementById("drinkcomps").innerHTML = "<tr><th>Component</th><th>Quantity</th></tr>";
+				}
+			}
+			xmlhttp.open("POST","db/RemoveDrink.php",true);
+			xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xmlhttp.send(data);
+		}
+	}
+	window.onload = getDrinks;
 	</script>
 </head>
 
@@ -132,22 +246,22 @@ session_start();
 				<div class="container">
 					<div class="row">
 						<div id="contentTitle" class="twelve columns">
-							<h3>Add Drink</h3> <!--Content Title goes here!-->
+							<h3>Update Drink</h3> <!--Content Title goes here!-->
 						</div>
 					</div>
 					<div class="row">
 						<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
-							<form name="insertDrink" action="javascript:addDrink()">
-
-								Drink Name: </br><input type="text" id="DrinkName" pattern="[A-Za-z\s']+" title="Can only contain letters" required /></br>
-								Drink Type: </br><input type="text" id="DrinkType" pattern="[A-Za-z\s]+" title="Can only contain letters" required /></br>
-								Percentage of Alcohol: <input type="text" id="PCAlcohol" pattern="[0-9]+" title="Can only contains numbers" required /></br>
-								
-								</br><input type="submit" value="Insert Drink" />
-							</form>
+							<select id="DrinkList" onchange="getComponents()"></select>
+							
+							<table id='drinkcomps'><tr><th>Component</th><th>Quantity</th></tr></table>
 						</div>
-						<div id="contentRight" class="one-half column"> <!--Display your content in this section-->
-							<form id="insertdrinkcomp" hidden action="javascript:addComponent()">
+						<div id="contentRight" hidden class="one-half column"> <!--Display your content in this section-->
+							
+							<select id="removeComp"></select> 
+							<button type="button" onclick="RemoveComponent()">Remove</button>
+							<hr>
+							
+							<form id="insertdrinkcomp" action="javascript:addComponent()">
 
 								<input type="hidden" name="DrinkID" id="DrinkID" required/>
 							
@@ -161,6 +275,9 @@ session_start();
 								<input type="submit" value="Add Component" />
 								</br></br><button type="button" onclick="insertComponent()">New Components</button>
 							</form>
+							
+							<hr>
+							<button type="button" onclick="RemoveDrink()">Remove Drink</button>
 						</div>
 					</div>
 				</div>

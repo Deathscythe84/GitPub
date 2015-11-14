@@ -29,6 +29,15 @@ table{
 	color:gold;	
 }
 
+.refreshIcon{
+	font-size: 24px;
+	color:white;
+	padding-right: 5px; 
+}
+.refreshIcon:hover{
+	color:gold;
+}
+
 @font-face{
 	font-family:Bebas-Book;
 	src:url(../fonts/BebasNeue-Book.ttf);
