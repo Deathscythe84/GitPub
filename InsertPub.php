@@ -48,7 +48,7 @@ include "db/db.php";
 				<div class="container">
 					<div class="row">
 						<div id="contentTitle" class="twelve columns">
-							<h3>A Content Title!</h3> <!--Content Title goes here!-->
+							<h3>Insert Bar</h3> <!--Content Title goes here!-->
 						</div>
 					</div>
 					<div class="row">
@@ -64,14 +64,16 @@ include "db/db.php";
 								<input type="text" name="Padd3" pattern="[A-Za-z\s]+" title="Can only contain letters" />
 								</br>
 								<input type="submit" value="Insert" />
+								
 							</div>
 							<div id="contentRight" class="one-half column"> <!--Display your content in this section-->
 								<label for="Pcity">City:</label>
-								<input type="text" name="Pcity" pattern="[A-Za-z\s]+" title="Can only contain letters" required /></br>
+								<input type="text" name="Pcity" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
 								<label for="Pcountry">Country:</label>
-								<input type="text" name="Pcountry" pattern="[A-Za-z\s]+" title="Can only contain letters" required /></br>
+								<input type="text" name="Pcountry" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
 								<label for="Pcode">Postcode:</label>
-								<input type="text" name="Ppcode" pattern="[A-Za-z0-9]+" title="Can only contain letters and numbers" required /></br>
+								<input type="text" name="Ppcode" pattern="[A-Za-z0-9]+" title="Can only contain letters and numbers" required />
+								
 							</div>
 						</form>
 					</div>

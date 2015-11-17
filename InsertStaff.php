@@ -106,6 +106,7 @@ $jobresult = mysql_query($jobquery, $db);
 								<input type="text" name="AccNumber" pattern="[0-9].{7}" title="Must contain 8 numbers" />
 								<label for="Password">Password:</label>
 								<input type="text" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/>
+								
 							</div>
 						</form>
 					</div>

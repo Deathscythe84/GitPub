@@ -54,8 +54,9 @@ $pubresult = mysql_query($pubquery, $db);
 						</div>
 					</div>
 					<div class="row">
+						<!--Display your content in this section-->
 						<form name="insertEntertainment" method="post" action="db/InsertIntoEntertainment.php">
-							<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
+							<div id="contentLeft" class="one-half column"> 
 								<label for="PubID">Pub:</label>
 								<select required name="PubID">
 								<option value=""></option>
@@ -67,18 +68,19 @@ $pubresult = mysql_query($pubquery, $db);
 								
 								?>
 								</select>
-
 								<label for="EntertainmentType">Entertainment Type:</label>
 								<input type="text" name="EntertainmentType" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
 								<label for="EntertainmentName">Entertainment Name:</label>
 								<input type="text" name="EntertainmentName" pattern="[A-Za-z\s']+" title="Can only contain letters" required />
-								<input type="submit" value="Insert" />
 							</div>
-							<div id="contentRight" class="one-half column"> <!--Display your content in this section-->
+							<!--Display your content in this section-->
+							<div id="contentRight" class="one-half column"> 
 								<label for="EntertainmentCost">Entertainment Cost:</label>
 								<input type="text" name="EntertainmentCost" pattern="[0-9.]+" title="Can only contain numbers" required />
 								<label for="CostDuration">Cost Duration:</label>
 								<input type="text" name="CostDuration" pattern="[A-Za-z0-9]+" title="Can only contain letters and numbers" required />
+								</br></br>
+								<input type="submit" value="Insert" />
 							</div>
 						</form>
 					</div>

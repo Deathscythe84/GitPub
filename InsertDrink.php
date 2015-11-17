@@ -66,10 +66,12 @@ session_start();
 					<div class="row">
 						<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
 							<form name="insertDrink" action="javascript:addDrink()">
-
-								Drink Name: </br><input type="text" id="DrinkName" pattern="[A-Za-z\s']+" title="Can only contain letters" required /></br>
-								Drink Type: </br><input type="text" id="DrinkType" pattern="[A-Za-z\s]+" title="Can only contain letters" required /></br>
-								Percentage of Alcohol: <input type="text" id="PCAlcohol" pattern="[0-9]+" title="Can only contains numbers" required /></br>
+								<label for="DrinkName">Drink Name:</label>
+								<input type="text" id="DrinkName" pattern="[A-Za-z\s']+" title="Can only contain letters" required />
+								<label for="DrinkType">Drink Type:</label>
+								<input type="text" id="DrinkType" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
+								<label for="PCAlcohol">Alcohol Percentage:</label>
+								<input type="text" id="PCAlcohol" pattern="[0-9]+" title="Can only contains numbers" required /></br>
 								
 								</br><input type="submit" value="Insert Drink" />
 							</form>
@@ -87,7 +89,6 @@ session_start();
 											
 								Quantity: 	</br><input type="text" id="quantity" pattern="[0-9]+" title="Can only contain numbers" required /></br>
 								<input type="submit" value="Add Component" />
-								</br></br><button type="button" onclick="insertComponent()">New Components</button>
 							</form>
 						</div>
 					</div>
