@@ -1,17 +1,21 @@
-<html>
+<?php 
+session_start();
+
+// if($_SESSION["Login"]==false)
+// {
+	// header('Location:index.php');
+// }
+?>
+<!DOCTYPE HTML5>
+<html lang="en">
 <head>
 <?php
-include "db/db.php";
+	include "db/db.php";
 
-$orderquery = "select Order_ID From Orders";
-$orderresult = mysql_query($orderquery, $db);
-
-$componentquery = "select Component_ID,Component_Name From Component";
-$componentresult = mysql_query($componentquery, $db);
-
+	$compquery = "select Component_ID,Component_Name From Component";
+	$compresult = mysql_query($compquery, $db);
 ?>
-
-<title>GitPub!</title>
+	<title>GitPub!</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/normalize.css">
@@ -28,7 +32,11 @@ $componentresult = mysql_query($componentquery, $db);
 	<!-- Scripts -->
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- <script src="js/scripts.js"></script> -->
+
 	<script src="js/AJAX.js"></script>
+	<script>
+	window.onload = getFood;
+	</script>
 </head>
 
 <body>
@@ -55,42 +63,36 @@ $componentresult = mysql_query($componentquery, $db);
 				<div class="container">
 					<div class="row">
 						<div id="contentTitle" class="twelve columns">
-							<h3>Insert Order Item</h3> <!--Content Title goes here!-->
+							<h3>Update Food</h3> <!--Content Title goes here!-->
 						</div>
 					</div>
 					<div class="row">
-						<form name="insertOrderItem" method="post" action="db/InsertIntoOrderItem.php">
 						<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
-							<label for="OrderID">Order ID</label>
-							<select name="OrderID">
-							<option value="0"></option>
-							<?php
+							<select id="FoodList" onchange="getFoodTableComponents()"></select>
 							
-							while($ordersrow = mysql_fetch_array($orderresult)){
-								echo "<option value=".$ordersrow['Order_ID'].">".$ordersrow['Order_ID']."</option>";
-							}
-							?>
-							</select></br>
-
-							<label for="ComponentID">Component ID</label>
-							<select required name="ComponentID">
-							<option value=""></option>
-							<?php
+							<table id='foodcomptable'><tr><th>Component</th><th>Quantity</th></tr></table>
+						</div>
+						<div id="contentRight" hidden class="one-half column"> <!--Display your content in this section-->
 							
-							while($Componentrow = mysql_fetch_array($componentresult)){
-								echo "<option value=".$Componentrow['Component_ID'].">".$Componentrow['Component_Name']."</option>";
-							}
-							?>
-							</select>
-							</br>
-							<input type="submit" value="Insert" />
+							<select id="FoodComponents"></select> 
+							<button type="button" onclick="RemoveFoodComponent()">Remove</button>
+							<hr>
+							
+							<form id="insertfoodcomp" action="javascript:addComponentToFood()">
 
+								<input type="hidden" id="FoodID" required/>
+							
+								Component:	</br>
+											<select required id="CompID">
+											</select>
+											
+								Quantity: 	</br><input type="text" id="quantity" pattern="[0-9]+" title="Can only contain numbers" required /></br>
+								<input type="submit" value="Add Component" />
+							</form>
+							
+							<hr>
+							<button type="button" onclick="RemoveFood()">Remove Food</button>
 						</div>
-						<div id="contentRight" class="one-half column"> <!--Display your content in this section-->
-							<label for="Quantity">Quantity:</label>
-							<input type="text" name="Quantity" pattern="[0-9]+" title="Can only contain numbers" required/></br>
-						</div>
-						</form>
 					</div>
 				</div>
 			</div>

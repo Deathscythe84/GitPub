@@ -58,27 +58,27 @@ session_start();
 						</div>
 					</div>
 					<div class="row">
-						<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
-							<form id="insertsupp" method="post" action="javascript:addSupplier()">
-								<label for="Supp_Name">Supplier Name:</label>
-								<input type="text" id="Supp_Name" pattern="[A-Za-z\s']+" title="Can only contain letters" required />
-								<label for="Add1">Address 1:</label>
-								<input type="text" id="Add1" pattern="[A-Za-z0-9\s]+" title="Can only contain letters and numbers" required />
-								<label for="Add2">Address 2:</label>
-								<input type="text" id="Add2" pattern="[A-Za-z\s]+" title="Can only contain letters"/>
-								<label for="Add3">Address 3:</label>
-								<input type="text" id="Add3" pattern="[A-Za-z\s]+" title="Can only contain letters"/>
-								</br><input type="submit" value="Insert" />
-							</form>
-						</div>
-						<div id="contentRight" class="one-half column"> <!--Display your content in this section-->
-							<label for="City">City:</label>
-							<input type="text" id="City" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
-							<label for="Country">Country:</label>
-							<input type="text" id="Country" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
-							<label for="PCode">Postcode:</label>
-							<input type="text" id="PCode" pattern="[A-Za-z0-9]+" title="Can only contain letters and numbers" required />
-						</div>
+						<form id="insertsupp" method="post" action="javascript:addSupplier()">
+							<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
+									<label for="Supp_Name">Supplier Name:</label>
+									<input type="text" id="Supp_Name" pattern="[A-Za-z\s']+" title="Can only contain letters" required />
+									<label for="Add1">Address 1:</label>
+									<input type="text" id="Add1" pattern="[A-Za-z0-9\s]+" title="Can only contain letters and numbers" required />
+									<label for="Add2">Address 2:</label>
+									<input type="text" id="Add2" pattern="[A-Za-z\s]+" title="Can only contain letters"/>
+									<label for="Add3">Address 3:</label>
+									<input type="text" id="Add3" pattern="[A-Za-z\s]+" title="Can only contain letters"/>
+							</div>
+							<div id="contentRight" class="one-half column"> <!--Display your content in this section-->
+								<label for="City">City:</label>
+								<input type="text" id="City" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
+								<label for="Country">Country:</label>
+								<input type="text" id="Country" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
+								<label for="PCode">Postcode:</label>
+								<input type="text" id="PCode" pattern="[A-Za-z0-9]+" title="Can only contain letters and numbers" required />
+								</br></br><input type="submit" value="Insert" />
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

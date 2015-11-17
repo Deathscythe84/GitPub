@@ -1,16 +1,13 @@
+<?php
+session_start();
+
+if($_SESSION["Login"]==false)
+{
+	header('Location:index.php');
+}
+?>
 <html>
 <head>
-	<?php
-	include "db/db.php";
-
-
-	$pubquery = "select Pub_ID,Pub_Name From Pub";
-	$pubresult = mysql_query($pubquery, $db);
-
-	$suppquery = "select Supplier_ID,Supplier_Name From Supplier";
-	$suppresult = mysql_query($suppquery, $db);
-
-	?>
 	<title>GitPub!</title>
 
 	<!-- CSS -->
@@ -29,6 +26,9 @@
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- <script src="js/scripts.js"></script> -->
 	<script src="js/AJAX.js"></script>
+	<script>
+	GetListOfSuppliers();
+	</script>
 </head>
 <body>
 <div class="container">
@@ -59,41 +59,37 @@
 						</div>
 					</div>
 					<div class="row">
-						<form name="insertorder" method="post" action="db/InsertIntoOrder.php">
-							<!--Display your content in this section-->
-							<div id="contentLeft" class="one-half column">
-								<label for="Supplier">Supplier:</label> 
-								<select required name="Supplier">
-								<option value=""></option>
-								<?php
-					
-								while($supprow = mysql_fetch_array($suppresult)){
-									echo "<option value=".$supprow['Supplier_ID'].">".$supprow['Supplier_Name']."</option>";
-								}
-								?>
-								</select>	
-
-								<label for="PubID">Pub:</label>
-								<select required name="PubID">
-								<option value=""></option>
-								<?php
-								
-								while($pubrow = mysql_fetch_array($pubresult)){
-									echo "<option value=".$pubrow['Pub_ID'].">".$pubrow['Pub_Name']."</option>";
-								}
-								?>
-								</select>
+						<!--Display your content in this section-->
+						<div id="contentLeft" class="one-half column">
+						<form name="insertorder" method="post" action="javascript:InsertOrder()">
+							<label for="SelectSupplier">Supplier:</label> 
+							<select id="SelectSupplier" required></select>
+							<input id="PubID" type="hidden" value="<?php echo $_SESSION["PubID"] ?>" />
 							</br>
-								<input type="submit" value="Insert" />
-							</div>
-							<!--Display your content in this section-->
-							<div id="contentRight" class="one-half column"> 
-								<label for="Date">Date:</label>
-								<input type="date" name="Date" Placeholder="YYYY-MM-DD" pattern="[0-9].{3}-[0-9].{1}-[0-9].{1}" title="YYYY-MM-DD" required />
-								<label for="TCost">Total Cost:</label>
-								<input type="text" name="TCost" pattern="[0-9.]+" title="Can only contain numbers" required/>
-							</div>
+							<input type="submit" value="Create Order" />
 						</form>
+						</div>
+						<!--Display your content in this section-->
+						<div id="contentRight" hidden class="one-half column">
+						
+							<select id="OrderComponents"></select> 
+							<button type="button" onclick="RemoveOrderComponent()">Remove</button>
+							<hr>
+							
+						<form name="insertorderitem" method="post" action="javascript:InsertOrderItem()">
+							<label for="ComponentID">Component ID</label>
+							<select id="ComponentID"required></select>
+							
+							<label for="Quantity">Quantity:</label>
+							<input type="text" id="Quantity" pattern="[0-9]+" title="Can only contain numbers" required/></br>
+							</br>
+							<input type="submit" value="Insert" />
+						</form>
+						
+						<hr>
+						<button type="button" onclick="RemoveOrder()">Cancel Order</button>
+						
+						</div>
 					</div>
 				</div>
 			</div>

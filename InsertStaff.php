@@ -62,8 +62,8 @@ $jobresult = mysql_query($jobquery, $db);
 						<form name="insertstaff" method="post" action="db/InsertIntoStaff.php">
 							<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
 								<label for="PubID">Pub:</label>
-								<select name="PubID">
-								<option value="0"></option>
+								<select name="PubID" required>
+								<option value=""></option>
 								<?php
 								while($pubrow = mysql_fetch_array($pubresult)){
 									echo "<option value=".$pubrow['Pub_ID'].">".$pubrow['Pub_Name']."</option>";
@@ -90,8 +90,7 @@ $jobresult = mysql_query($jobquery, $db);
 								<!-- Should we maybe have 3 Address fields? -->
 								<label for="Address">Address:</label>
 								<input type="text" name="Address" pattern="[A-Za-z0-9\s]+" title="Can only contain letters" />
-								</br>
-								<input type="submit" value="Insert" />
+								
 							</div>
 							<div id="contentRight" class="one-half column"> <!--Display your content in this section-->
 								<label for="City">City:</label>
@@ -106,7 +105,8 @@ $jobresult = mysql_query($jobquery, $db);
 								<input type="text" name="AccNumber" pattern="[0-9].{7}" title="Must contain 8 numbers" />
 								<label for="Password">Password:</label>
 								<input type="text" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/>
-								
+								</br>
+								<input type="submit" value="Insert" />
 							</div>
 						</form>
 					</div>

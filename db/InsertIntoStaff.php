@@ -14,9 +14,8 @@ $Sortcode = $_POST["Sortcode"];
 $AccNumber = $_POST["AccNumber"];
 $Password = $_POST["Password"];
 
-
 // SQL Insert using variable names
-mysql_query("CALL insertStaff('$PID', '$JID', '$FName', '$SName', '$DOB', '$Address', '$City', '$PostCode', '$StartDate', '$Sortcode', '$AccNumber', '$Password')", $db);
+$row = mysql_query("CALL insertStaff('$PID', '$JID', '$FName', '$SName', '$DOB', '$Address', '$City', '$PostCode', '$StartDate', '$Sortcode', '$AccNumber', '$Password', @return)", $db);
 
 mysql_close($db);
 ?>

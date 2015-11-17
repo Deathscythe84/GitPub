@@ -15,12 +15,11 @@
 	<a href="InsertDrink.php">Insert Drink</a></br>
 	<a href="UpdateDrink.php">Update Drink</a></br>
 	<a href="InsertFood.php">Insert Food</a></br>
-	<!--a href="InsertDrinkComponent.php">Insert Drink Component</a--></br>
-	<a href="InsertFoodComponent.php">Insert Food Component</a></br>
+	<a href="UpdateFood.php">Update Food</a></br>
 	<a href="InsertComponent.php">Insert Component</a></br>
-	<a href="InsertOrderItem.php">Insert Order Item</a></br>
 	<a href="InsertOrder.php">Insert Order</a></br>
 	<a href="InsertSupplier.php">Insert Supplier</a></br>
+	<a href="UpdateSupplier.php">Update Supplier</a></br>
 	
 	</br>
 	<a href="SelectAll.php">Show All</a></br>

@@ -58,12 +58,14 @@
 							<div id="contentLeft" class="one-half column"> 
 								<label for="Title">Job Title:</label>
 								<input type="text" name="Title" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
+								<label for="Rate">Job Rate:</label> 
+								<input type="text" name="Rate" pattern="[0-9.]+" title="Can only contain numbers" required />
+								</br></br>
 								<input type="submit" value="Insert" />
 							</div>
 							<!--Display your content in this section-->
 							<div id="contentRight" class="one-half column">
-								<label for="Rate">Job Rate:</label> 
-								<input type="text" name="Rate" pattern="[0-9.]+" title="Can only contain numbers" required />
+								
 							</div>
 						</form>
 					</div>

@@ -9,7 +9,13 @@ $TCost = $_POST["TCost"];
 // SQL Insert using variable names
 
 
-mysql_query("CALL insertOrders('$SID', '$PID', '$Date', '$TCost')", $db);
+$Row = mysql_query("CALL insertOrders('$SID', '$PID', '$Date', '$TCost', @Return)", $db);
 
 mysql_close($db);
+$ID = mysql_fetch_row($Row);
+
+echo "<h3>".$_POST["SupplierName"]."</h3>
+		<input type='hidden' id='orderid' value=".$ID[0]." />
+		<input type='hidden' id='Supplierid' value=".$SID." />
+		<table id='ordercomptable'><tr><th>Component</th><th>Quantity</th></tr></table>";
 ?>

@@ -5,7 +5,7 @@ $UID = $_POST["LUser"];
 $Pass = $_POST["LPass"];
 
 include "db\db.php";
-$loginquery = "Select Password From Staff where Staff_ID = ".$UID;
+$loginquery = "Select Pub_ID, Password From Staff where Staff_ID = ".$UID;
 $loginresult = mysql_query($loginquery,$db);
 echo $loginresult;
 
@@ -20,6 +20,7 @@ else
 		{
 			$_SESSION["Login"]=true;
 			$_SESSION["UserID"]=$UID;
+			$_SESSION["PubID"]=$row["Pub_ID"];
 			header('Location:home.php');
 		}
 		else

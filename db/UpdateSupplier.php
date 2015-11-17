@@ -14,7 +14,6 @@ $SupID= $_POST["SuppID"];
 
 
 // SQL Insert using variable names
-mysql_query("Update Supplier SET Supplier_Name = '$SName', Address1 = '$SAdd1', Address2 = '$SAdd2', Address3 = '$SAdd3',
-	City = '$SCity', Country = '$SCountry', Postcode = '$SCode' Where Supplier_ID =".$SupID, $db);
+mysql_query("CALL updateSupplier('$SName','$SAdd1','$SAdd2','$SAdd3','$SCity','$SCountry','$SCode','$SupID')", $db);
 mysql_close($db);
 ?>

@@ -46,8 +46,7 @@
 								<input id="inputField" name="LPass" class="u-full-width" type="password" placeholder="..." id="loginInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="At least one number, upper and lower case letter, and minimum eight characters" required>
 								<input type="Submit" value="Login" class="button"/>
 								<div>
-									<a class="socialIcons"href="https://github.com/kzjasta"><i class="fi-social-github"></i></a>
-									<a class="socialIcons"href="https://facebook.com"><i class="fi-social-facebook"></i></a>
+									<a class="socialIcons"href="https://github.com/Deathscythe84/gitpub"><i class="fi-social-github"></i></a>
 								</div>
 							</div>
 						</div>

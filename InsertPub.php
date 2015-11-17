@@ -62,9 +62,6 @@ include "db/db.php";
 								<input type="text" name="Padd2" pattern="[A-Za-z\s]+" title="Can only contain letters" />
 								<label for="Padd3">Address 3:</label>
 								<input type="text" name="Padd3" pattern="[A-Za-z\s]+" title="Can only contain letters" />
-								</br>
-								<input type="submit" value="Insert" />
-								
 							</div>
 							<div id="contentRight" class="one-half column"> <!--Display your content in this section-->
 								<label for="Pcity">City:</label>
@@ -73,7 +70,8 @@ include "db/db.php";
 								<input type="text" name="Pcountry" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
 								<label for="Pcode">Postcode:</label>
 								<input type="text" name="Ppcode" pattern="[A-Za-z0-9]+" title="Can only contain letters and numbers" required />
-								
+								</br></br>
+								<input type="submit" value="Insert" />
 							</div>
 						</form>
 					</div>

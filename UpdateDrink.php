@@ -90,7 +90,6 @@ session_start();
 											
 								Quantity: 	</br><input type="text" id="quantity" pattern="[0-9]+" title="Can only contain numbers" required /></br>
 								<input type="submit" value="Add Component" />
-								</br></br><button type="button" onclick="insertComponent()">New Components</button>
 							</form>
 							
 							<hr>

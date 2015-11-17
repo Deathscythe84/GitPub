@@ -1,10 +1,10 @@
- <?php 
+<?php 
 include "db.php";
 // get content from form
-$SupID= $_POST["SuppID"];
+$FID = $_POST["FoodID"];
 
 // SQL Insert using variable names
-mysql_query("CALL deleteSupplier('$SupID')", $db);
+mysql_query("CALL deleteFood('$FID')", $db);
 
 mysql_close($db);
 

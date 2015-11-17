@@ -9,4 +9,5 @@ $Quant = (int) $_POST["quantity"];
 mysql_query("CALL insertFoodComp('$FoodID', '$CompID', '$Quant')", $db);
 
 mysql_close($db);
+include "UpdateFoodComponentTable.php";
 ?>

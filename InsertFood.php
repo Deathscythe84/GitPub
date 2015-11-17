@@ -51,32 +51,42 @@
 						</div>
 					</div>
 					<div class="row">
-						<form name="insertfood" method="post" action="db/InsertIntoFood.php">
-							<!--Display your content in this section-->
-							<div id="contentLeft" class="one-half column"> 
-								<label for="Fname">Food name:</label>
-								<input type="text" name="Fname" pattern="[A-Za-z/s']+" title="Can only contain letters" required />
+						<!--Display your content in this section-->
+						<div id="contentLeft" class="one-half column"> 
+						<form name="insertfood" method="post" action="javascript:InsertFood()">
+							<label for="Fname">Food name:</label>
+							<input type="text" id="Fname" pattern="[A-Za-z\s']+" title="Can only contain letters" required />
 
-								<label for="Fname">Food type:</label>
-								<input type="text" name="Ftype" pattern="[A-Za-z]+" title="Can only contain letters" required />
-
-								<input type="submit" value="Insert" />
-							</div>
-							<!--Display your content in this section-->
-							<div id="contentRight" class="one-half column"> 
-								<label for="FVeget">Is Vegetarian</label>
-								<select name="FVeget"> 
+							<label for="Ftype">Food type:</label>
+							<input type="text" id="Ftype" pattern="[A-Za-z]+" title="Can only contain letters" required />
+							
+							<label for="FVeget">Is Vegetarian</label>
+							<select id="FVeget"> 
 								<option value="0">No</option>
 								<option value="1">Yes</option>
-								</select>
-								
-								<label for="FVegan">Is Vegan:</label>
-								<select name="FVegan">
+							</select>
+
+							<label for="FVegan">Is Vegan:</label>
+							<select id="FVegan">
 								<option value="0">No</option>
 								<option value="1">Yes</option>
-								</select>
-							</div>
+							</select>
+							</br><input type="submit" value="Insert" />
 						</form>
+						</div>
+						<!--Display your content in this section-->
+						<div id="contentRight" hidden class="one-half column"> 
+						<form  action="javascript:addComponentToFood()">
+								<input type="hidden" id="FoodID" required/>
+							
+								Component:	</br>
+											<select required id="CompID">
+											</select>
+											</br>
+								Quantity: 	</br><input type="text" id="quantity" pattern="[0-9]+" title="Can only contain numbers" required /></br>
+								<input type="submit" value="Add Component" />
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -84,15 +94,3 @@
 	</div>
 </body>
 </html>
-
-
-
-
-<!--Create Table `Food` (
-`Food_ID` int(11) Not null,
-`Food_Name` varchar(50) Default Null,
-`Food_Type` varchar(20) Default Null,
-`Vegetarian` bool default null,
-`Vegan` bool default null,
-Primary Key (`Food_ID`)
-)-->
