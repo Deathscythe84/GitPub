@@ -1,11 +1,13 @@
+<?php 
+session_start();
+
+if($_SESSION["Login"]==false)
+{
+	header('Location:index.php');
+}
+?>
 <html>
 <head>
-<?php
-include "db/db.php";
-
-$pubquery = "select Pub_ID,Pub_Name From Pub";
-$pubresult = mysql_query($pubquery, $db);
-?>
 
 <title>GitPub!</title>
 
@@ -25,6 +27,12 @@ $pubresult = mysql_query($pubquery, $db);
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- <script src="js/scripts.js"></script> -->
 	<script src="js/AJAX.js"></script>
+	<script>window.onload=function()
+	{
+		getEntertainmentListForPub();
+		getEntertainmentTableForPub();
+	}
+	</script>
 </head>
 <body>
 	<div class="container">
@@ -50,39 +58,35 @@ $pubresult = mysql_query($pubquery, $db);
 				<div class="container">
 					<div class="row">
 						<div id="contentTitle" class="twelve columns">
-							<h3>Insert Entertainment</h3> <!--Content Title goes here!-->
+							<h3>Update Entertainment</h3> <!--Content Title goes here!-->
 						</div>
 					</div>
 					<div class="row">
 						<!--Display your content in this section-->
-						<form name="insertEntertainment" method="post" action="db/InsertIntoEntertainment.php">
-							<div id="contentLeft" class="one-half column"> 
-								<label for="PubID">Pub:</label>
-								<select required name="PubID">
-								<option value=""></option>
-								<?php
-								
-								while($pubrow = mysql_fetch_array($pubresult)){
-									echo "<option value=".$pubrow['Pub_ID'].">".$pubrow['Pub_Name']."</option>";
-								}
-								
-								?>
-								</select>
+						<div id="contentLeft" class="one-half column">
+							<form id="insertEntertainment" method="post" action="javascript:InsertEntertainmentItem()">
 								<label for="EntertainmentType">Entertainment Type:</label>
-								<input type="text" name="EntertainmentType" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
+								<input type="text" id="EntertainmentType" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
 								<label for="EntertainmentName">Entertainment Name:</label>
-								<input type="text" name="EntertainmentName" pattern="[A-Za-z\s']+" title="Can only contain letters" required />
-							</div>
-							<!--Display your content in this section-->
-							<div id="contentRight" class="one-half column"> 
+								<input type="text" id="EntertainmentName" pattern="[A-Za-z\s']+" title="Can only contain letters" required />
 								<label for="EntertainmentCost">Entertainment Cost:</label>
-								<input type="text" name="EntertainmentCost" pattern="[0-9.]+" title="Can only contain numbers" required />
+								<input type="text" id="EntertainmentCost" pattern="[0-9.]+" title="Can only contain numbers" required />
 								<label for="CostDuration">Cost Duration:</label>
-								<input type="text" name="CostDuration" pattern="[A-Za-z0-9]+" title="Can only contain letters and numbers" required />
+								<input type="text" id="CostDuration" pattern="[A-Za-z0-9\s]+" title="Can only contain letters and numbers" required />
 								</br></br>
 								<input type="submit" value="Insert" />
-							</div>
-						</form>
+							</form>
+
+							<hr>
+							<label for="EntertainmentAtPub">Entertainment:</label>
+							<select id="EntertainmentAtPub">
+							</select></br>
+							<button type="button" onclick="RemoveEntertainmentItem();">Remove Entertainment</button>
+						</div>
+						<!--Display your content in this section-->
+						<div id="contentRight" class="one-half column"> 
+							<table id="EntertainmentTable"></table>
+						</div>
 					</div>
 				</div>
 			</div>

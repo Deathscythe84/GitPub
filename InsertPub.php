@@ -52,24 +52,24 @@ include "db/db.php";
 						</div>
 					</div>
 					<div class="row">
-						<form name="insertbar" method="post" action="db/InsertIntoPub.php">
+						<form id="insertbar" method="post" action="javascript:InsertPub()">
 							<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
 								<label for="Pname">Pub:</label>
-								<input type="text" name="Pname" pattern="[A-Za-z\s']+" title="Can only contain letters" required />
+								<input type="text" id="Pname" pattern="[A-Za-z\s']+" title="Can only contain letters" required />
 								<label for="Padd1">Address 1:</label>
-								<input type="text" name="Padd1" pattern="[A-Za-z0-9\s]+" title="Can only contain letters and numbers" required />
+								<input type="text" id="Padd1" pattern="[A-Za-z0-9\s]+" title="Can only contain letters and numbers" required />
 								<label for="Padd2">Address 2:</label>
-								<input type="text" name="Padd2" pattern="[A-Za-z\s]+" title="Can only contain letters" />
+								<input type="text" id="Padd2" pattern="[A-Za-z\s]+" title="Can only contain letters" />
 								<label for="Padd3">Address 3:</label>
-								<input type="text" name="Padd3" pattern="[A-Za-z\s]+" title="Can only contain letters" />
+								<input type="text" id="Padd3" pattern="[A-Za-z\s]+" title="Can only contain letters" />
 							</div>
 							<div id="contentRight" class="one-half column"> <!--Display your content in this section-->
 								<label for="Pcity">City:</label>
-								<input type="text" name="Pcity" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
+								<input type="text" id="Pcity" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
 								<label for="Pcountry">Country:</label>
-								<input type="text" name="Pcountry" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
+								<input type="text" id="Pcountry" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
 								<label for="Pcode">Postcode:</label>
-								<input type="text" name="Ppcode" pattern="[A-Za-z0-9]+" title="Can only contain letters and numbers" required />
+								<input type="text" id="Ppcode" pattern="[A-Za-z0-9]+" title="Can only contain letters and numbers" required />
 								</br></br>
 								<input type="submit" value="Insert" />
 							</div>

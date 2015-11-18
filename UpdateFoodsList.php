@@ -1,7 +1,15 @@
-<!DOCTYPE HTML5>
-<html lang="en">
+<?php 
+session_start();
+
+if($_SESSION["Login"]==false)
+{
+	header('Location:index.php');
+}
+?>
+<html>
 <head>
-	<title>GitPub!</title>
+
+<title>GitPub!</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/normalize.css">
@@ -20,11 +28,14 @@
 	<!-- <script src="js/scripts.js"></script> -->
 	<script src="js/AJAX.js"></script>
 	<script>
-	GetListOfSuppliers();
+	window.onload=function()
+	{
+		getFoodListForNotPub();
+		getFoodListForPub();
+		getFoodTableForPub();
+	};
 	</script>
-	
 </head>
-
 <body>
 	<div class="container">
 		<div class="row">
@@ -49,24 +60,31 @@
 				<div class="container">
 					<div class="row">
 						<div id="contentTitle" class="twelve columns">
-							<h3>Insert Component</h3> <!--Content Title goes here!-->
+							<h3>Insert Food List</h3> <!--Content Title goes here!-->
 						</div>
 					</div>
 					<div class="row">
 						<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
-							<select id="SelectSupplier" onchange="javascript:GetSupplierComponentsTable()"></select>
-							<table id="tableSupplierComponents"></table>
-						</div>
-						<div id="contentRight" hidden class="one-half column"> <!--Display your content in this section-->
-							<form id="componentDetails" action="javascript:insertComponent()">
-							<label for="componentName">Component Name:</label>
-							<input type="text" pattern="[A-Za-z\s]+" title="Can only contain letters" required id="componentName" placeholder="..."/>
-							<label for="componentPrice">Price:</label>
-							<input type="number" step="0.01" pattern="[0-9]+" title="Can only contain numbers" required id="componentPrice" placeholder="..."/>
-							<input type="submit" value="Add">
+							<form name="insertFoodList" method="post" action="javascript:InsertFoodListItem()">
+							
+							<label for="FoodId">Food:</label>
+							<select id="FoodId" required>
+							</select>
+							<label for="Price">Price:</label>
+							<input type="text" id="Price" pattern="[0-9.]+" title="Can only contain numbers" required /></br>
+					
+							</br>
+							<input type="submit" value="Insert"/>
 							</form>
+							
 							<hr>
-							<select id="CompID"></select><button type="button" onclick="javascript:RemoveComponent()">Delete</button>
+							<label for="FoodAtPub">Food:</label>
+							<select id="FoodAtPub" required>
+							</select>
+							<button type="button" onclick="RemoveFoodItem();">Remove Food Item</button>
+						</div>
+						<div id="contentRight" class="one-half column"> <!--Display your content in this section-->
+							<table id="Menu"></table>
 						</div>
 					</div>
 				</div>

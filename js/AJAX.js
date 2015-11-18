@@ -733,7 +733,7 @@
 	function RemoveOrder()
 	{
 		var data = 'OrderID='+document.getElementById("orderid").value;
-					
+		
 		if(window.XMLHttpRequest){
 			xmlhttp = new XMLHttpRequest();
 		} else {
@@ -746,6 +746,328 @@
 			}
 		}
 		xmlhttp.open("POST","db/RemoveOrder.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
+	
+	}
+	function getFoodListForNotPub()
+	{	
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("FoodId").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","db/GetFoodListForNotPub.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
+	function InsertFoodListItem()
+	{
+		var data = 'FoodId='+document.getElementById("FoodId").value+
+		'&Price='+document.getElementById("Price").value;
+		
+		document.getElementById("Price").value="";
+
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				getFoodListForNotPub();
+				getFoodListForPub();
+				getFoodTableForPub();
+			}
+		}
+		xmlhttp.open("POST","db/InsertIntoFoodList.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
+	}
+	function getFoodTableForPub()
+	{	
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("Menu").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","db/GetFoodListTableForPub.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
+	function getFoodListForPub()
+	{	
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("FoodAtPub").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","db/GetFoodListForPub.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
+	function RemoveFoodItem()
+	{
+		var data = 'FoodID='+document.getElementById("FoodAtPub").value;
+		
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				getFoodListForNotPub();
+				getFoodListForPub();
+				getFoodTableForPub();
+			}
+		}
+		xmlhttp.open("POST","db/RemoveFoodList.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
+	
+	}
+	function getDrinkListForNotPub()
+	{	
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("DrinkId").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","db/GetDrinkListForNotPub.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
+	function InsertDrinkListItem()
+	{
+		var data = 'DrinkId='+document.getElementById("DrinkId").value+
+		'&Price='+document.getElementById("Price").value;
+		
+		document.getElementById("Price").value="";
+
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				getDrinkListForNotPub();
+				getDrinkListForPub();
+				getDrinkTableForPub();
+			}
+		}
+		xmlhttp.open("POST","db/InsertIntoDrinkList.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
+	}
+	function getDrinkTableForPub()
+	{	
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("DrinkMenu").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","db/GetDrinkListTableForPub.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
+	function getDrinkListForPub()
+	{	
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("DrinkAtPub").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","db/GetDrinkListForPub.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
+	function RemoveDrinkItem()
+	{
+		var data = 'DrinkID='+document.getElementById("DrinkAtPub").value;
+		
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				getDrinkListForNotPub();
+				getDrinkListForPub();
+				getDrinkTableForPub();
+			}
+		}
+		xmlhttp.open("POST","db/RemoveDrinkList.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
+	
+	}
+	function InsertPub()
+	{
+		var data = 'Pname='+document.getElementById("Pname").value+
+		'&Padd1='+document.getElementById("Padd1").value+
+		'&Padd2='+document.getElementById("Padd2").value+
+		'&Padd3='+document.getElementById("Padd3").value+
+		'&Pcity='+document.getElementById("Pcity").value+
+		'&Pcountry='+document.getElementById("Pcountry").value+
+		'&Ppcode='+document.getElementById("Ppcode").value;
+
+		document.getElementById("insertbar").reset();
+
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+			}
+		}
+		xmlhttp.open("POST","db/InsertIntoPub.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
+	}
+	function InsertDemographicData()
+	{
+		var data = 'Type='+document.getElementById("Type").value+
+		'&Value='+document.getElementById("Value").value+
+		'&Date='+document.getElementById("Date").value;
+
+		document.getElementById("insertDemoData").reset();
+
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+			}
+		}
+		xmlhttp.open("POST","db/InsertIntoDemoData.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
+	}
+	function InsertEntertainmentItem()
+	{
+		var data = 'EntertainmentType='+document.getElementById("EntertainmentType").value+
+		'&EntertainmentName='+document.getElementById("EntertainmentName").value+
+		'&EntertainmentCost='+document.getElementById("EntertainmentCost").value+
+		'&CostDuration='+document.getElementById("CostDuration").value;
+		
+		document.getElementById("insertEntertainment").reset();
+
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				getEntertainmentListForPub();
+				getEntertainmentTableForPub();
+			}
+		}
+		xmlhttp.open("POST","db/InsertIntoEntertainment.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
+	}
+	function getEntertainmentTableForPub()
+	{	
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("EntertainmentTable").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","db/GetEntertainmentTableForPub.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
+	function getEntertainmentListForPub()
+	{	
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("EntertainmentAtPub").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","db/GetEntertainmentListForPub.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
+	function RemoveEntertainmentItem()
+	{
+		var data = 'EntertainmentID='+document.getElementById("EntertainmentAtPub").value;
+		
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				getEntertainmentListForPub();
+				getEntertainmentTableForPub();
+			}
+		}
+		xmlhttp.open("POST","db/RemoveEntertainment.php",false);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send(data);
 	

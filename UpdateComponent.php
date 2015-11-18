@@ -1,14 +1,7 @@
-<html>
+<!DOCTYPE HTML5>
+<html lang="en">
 <head>
-<?php
-include "db/db.php";
-
-
-$pubquery = "select Pub_ID,Pub_Name From Pub";
-$pubresult = mysql_query($pubquery, $db);
-?>
-
-<title>GitPub!</title>
+	<title>GitPub!</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/normalize.css">
@@ -26,7 +19,12 @@ $pubresult = mysql_query($pubquery, $db);
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- <script src="js/scripts.js"></script> -->
 	<script src="js/AJAX.js"></script>
+	<script>
+	GetListOfSuppliers();
+	</script>
+	
 </head>
+
 <body>
 	<div class="container">
 		<div class="row">
@@ -51,28 +49,29 @@ $pubresult = mysql_query($pubquery, $db);
 				<div class="container">
 					<div class="row">
 						<div id="contentTitle" class="twelve columns">
-							<h3>Insert Demographic Data</h3> <!--Content Title goes here!-->
+							<h3>Update Supplier Component</h3> <!--Content Title goes here!-->
 						</div>
 					</div>
 					<div class="row">
-						<form id="insertDemoData" method="post" action="javascript:InsertDemographicData()">
-							<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
-								<label for="Type">Type:</label>
-								<input type="text" id="Type" pattern="[A-Za-z\s]+" title="Can only contain letters" />
-								<label for="Value">Value:</label>
-								<input type="text" id="Value" pattern="[A-Za-z0-9\s]+" title="Can only contain letters and numbers" />
-							</div>
-							<div id="contentRight" class="one-half column"> <!--Display your content in this section-->
-								<label for="Date">Date:</label>
-								<input type="date" id="Date" Placeholder="YYYY-MM-DD" pattern="[0-9].{3}-[0-9].{1}-[0-9].{1}" title="YYYY-MM-DD" />
-								</br></br>
-								<input type="submit" value="Insert" />
-							</div>
-						</form>
+						<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
+							<select id="SelectSupplier" onchange="javascript:GetSupplierComponentsTable()"></select>
+							<table id="tableSupplierComponents"></table>
+						</div>
+						<div id="contentRight" hidden class="one-half column"> <!--Display your content in this section-->
+							<form id="componentDetails" action="javascript:insertComponent()">
+							<label for="componentName">Component Name:</label>
+							<input type="text" pattern="[A-Za-z\s]+" title="Can only contain letters" required id="componentName" placeholder="..."/>
+							<label for="componentPrice">Price:</label>
+							<input type="number" step="0.01" pattern="[0-9]+" title="Can only contain numbers" required id="componentPrice" placeholder="..."/>
+							<input type="submit" value="Add">
+							</form>
+							<hr>
+							<select id="CompID"></select><button type="button" onclick="javascript:RemoveComponent()">Delete</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
 </body>
 </html>

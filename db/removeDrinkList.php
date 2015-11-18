@@ -1,7 +1,9 @@
 <?php 
+session_start();
+
 include "db.php";
 // get content from form
-$PID = $_POST["PubID"];
+$PID = $_SESSION["PubID"];
 $DID = $_POST["DrinkID"];
 
 // SQL Insert using variable names

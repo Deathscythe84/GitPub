@@ -1,14 +1,13 @@
+<?php 
+session_start();
+
+if($_SESSION["Login"]==false)
+{
+	header('Location:index.php');
+}
+?>
 <html>
 <head>
-<?php
-include "db/db.php";
-
-$pubquery = "select Pub_ID,Pub_Name From Pub";
-$pubresult = mysql_query($pubquery, $db);
-
-$drinkquery = "select Drink_ID,Drink_Name From Drink";
-$drinkresult = mysql_query($drinkquery, $db);
-?>
 <title>GitPub!</title>
 
 	<!-- CSS -->
@@ -27,6 +26,14 @@ $drinkresult = mysql_query($drinkquery, $db);
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- <script src="js/scripts.js"></script> -->
 	<script src="js/AJAX.js"></script>
+	<script>
+	window.onload=function()
+	{
+		getDrinkListForNotPub();
+		getDrinkListForPub();
+		getDrinkTableForPub();
+	};
+	</script>
 </head>
 <body>
 	<div class="container">
@@ -56,40 +63,28 @@ $drinkresult = mysql_query($drinkquery, $db);
 						</div>
 					</div>
 					<div class="row">
-						<form name="insertDrinksList" method="post" action="db/InsertIntoDrinkList.php">
-							<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
-								<label for="DrinkId">Drink:</label>
-								<select name="DrinkId">
-								<option value="0"></option>
-								<?php
-								
-								while($drinkrow = mysql_fetch_array($drinkresult)){
-									echo "<option value=".$drinkrow['Drink_ID'].">".$drinkrow['Drink_Name']."</option>";
-								}
-								
-								?>
-								</select>
-								<label for="PubID">Pub:</label>
-								<select required name="PubID">
-								<option value=""></option>
-								<?php
-								
-								while($pubrow = mysql_fetch_array($pubresult)){
-									echo "<option value=".$pubrow['Pub_ID'].">".$pubrow['Pub_Name']."</option>";
-								}
-								
-								?>
-								</select>
-								<label for="Price">Price:</label>
-								<input type="text" name="Price" pattern="[0-9.]+" title="Can only contain numbers" required /></br>
-						
-								</br>
-								<input type="submit" value="Insert" />
-							</div>
-							<div id="contentRight" class="one-half column"> <!--Display your content in this section-->	
-
-							</div>
-						</form>		
+						<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
+							<form name="insertDrinksList" method="post" action="javascript:InsertDrinkListItem()">
+							
+							<label for="DrinkId">Drink:</label>
+							<select id="DrinkId">
+							</select>
+							<label for="Price">Price:</label>
+							<input type="text" id="Price" pattern="[0-9.]+" title="Can only contain numbers" required /></br>
+					
+							</br>
+							<input type="submit" value="Insert" />
+							</form>
+							
+							<hr>
+							<label for="DrinkAtPub">Food:</label>
+							<select id="DrinkAtPub" required>
+							</select>
+							<button type="button" onclick="RemoveDrinkItem();">Remove Drink Item</button>
+						</div>
+						<div id="contentRight" class="one-half column"> <!--Display your content in this section-->	
+							<table id="DrinkMenu"></table>
+						</div>
 					</div>
 				</div>
 			</div>

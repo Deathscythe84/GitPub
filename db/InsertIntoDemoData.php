@@ -1,8 +1,10 @@
 <?php 
+session_start();
+
 include "db.php";
 // get content from form
 
-$PID = $_POST["PubID"];
+$PID = $_SESSION["PubID"];
 $DDDate = $_POST["Date"];
 $DDType = $_POST["Type"];
 $DDValue = $_POST["Value"];

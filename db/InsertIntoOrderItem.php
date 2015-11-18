@@ -11,8 +11,12 @@ $QUAN = $_POST["Quantity"];
 mysql_query("CALL insertOrderItem('$OID', '$CID', '$QUAN')", $db);
 $Total = mysql_query("CALL GetOrderTotal('$OID')",$db);
 $row=mysql_fetch_row($Total)[0];
-echo $row;
+
+mysql_close($db);
+include "db.php";
+
 mysql_query("CALL updateOrder('$row','$OID')", $db);
+
 mysql_close($db);
 
 include "UpdateOrderComponentTable.php"

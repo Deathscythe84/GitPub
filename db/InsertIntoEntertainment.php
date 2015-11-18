@@ -1,7 +1,9 @@
 <?php 
+session_start();
+
 include "db.php";
 // get content from form
-$PID = $_POST["PubID"];
+$PID = $_SESSION["PubID"];
 $EType = $_POST["EntertainmentType"];
 $EName = $_POST["EntertainmentName"];
 $EName = addslashes($EName);
