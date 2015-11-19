@@ -43,11 +43,31 @@ if($_SESSION["Login"]==false)
 			<div id="sideBar" class="two columns">
 				<!-- Navigation Options -->
 				<ul id="navList">
-					<li class="navOption"><a href="#">Home</a></li>
-					<li class="navOption"><a href="#">Orders</a></li>
-					<li class="navOption"><a href="#">Search</a></li>
-					<li class="navOption"><a href="#">Gallery</a></li>
-					<li class="navOption"><a href="index.php">Logout</a></li>
+					<li class="navOption"><a href="home.php">Home</a></li>
+
+					<li class="navOption">
+						<a href="#">Add</a>
+						<ul>
+							<li class="subOption"><a href="#">Sub 1</a></li>
+							<li class="subOption"><a href="#">Sub 2</a></li>
+							<li class="subOption"><a href="#">Sub 3</a></li>
+							<li class="subOption"><a href="#">Sub 4</a></li>
+						</ul>
+					</li>
+
+					<li class="navOption">
+						<a href="#">View</a>
+						<ul>
+							<li class="subOption"><a href="#">Sub 1</a></li>
+							<li class="subOption"><a href="#">Sub 2</a></li>
+							<li class="subOption"><a href="#">Sub 3</a></li>
+							<li class="subOption"><a href="#">Sub 4</a></li>
+						</ul>
+					</li>
+
+					<li class="navOption">
+						<a href="index.php">Logout</a>
+					</li>
 				</ul>
 			</div>
 			<div id="content" class="ten columns">
