@@ -27,6 +27,12 @@ if($_SESSION["Login"]==false)
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- <script src="js/scripts.js"></script> -->
 	<script src="js/AJAX.js"></script>
+	<script>
+		window.onload=function()
+		{
+			GetMenu();
+		}
+	</script>
 	
 </head>
 
@@ -69,30 +75,24 @@ if($_SESSION["Login"]==false)
 						<a href="index.php">Logout</a>
 					</li>
 				</ul>
+				<img class="navDecor" src="images/octo.png">
 			</div>
+
+			<!-- Page Content -->
 			<div id="content" class="ten columns">
 				<div class="container">
 					<div class="row">
-						<div id="contentTitle" class="twelve columns">
-							<h3>A Content Title!</h3> <!--Content Title goes here!-->
+						<div id="homeShowcase" class="twelve columns">
+							<h1>Like if its a big fuckton table then style it differently to the personal details one?
+								Also, try and keep the original menu structure, make extra options sub-options.
+								Personal Details is like to update them, isnt that a main one?
+								but yeah for the others i will keep the main ones to a minimum
+							</h1> <!--Content Title goes here!-->
 						</div>
 					</div>
 					<div class="row">
-						<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
-							<p>
-								The proposed legislation, which will have to pass votes in both houses of Parliament, would order communications companies, such as broadband firms, to hold basic details of the services that someone has accessed online - something that has been repeatedly proposed but never enacted.
-							</p>
-							<p>
-								This duty would include forcing firms to hold a schedule of which websites someone visits and the apps they connect to through computers, smartphones, tablets and other devices.
-							</p>
-						</div>
-						<div id="contentRight" class="one-half column"> <!--Display your content in this section-->
-							<p>
-								The proposed legislation, which will have to pass votes in both houses of Parliament, would order communications companies, such as broadband firms, to hold basic details of the services that someone has accessed online - something that has been repeatedly proposed but never enacted.
-							</p>
-							<p>
-								This duty would include forcing firms to hold a schedule of which websites someone visits and the apps they connect to through computers, smartphones, tablets and other devices.
-							</p>
+						<div class=""id="homeContent" class="one-half column"> <!--Display your content in this section-->
+						<h1></h1>	
 						</div>
 					</div>
 				</div>

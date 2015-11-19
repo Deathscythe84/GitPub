@@ -270,7 +270,7 @@
 				document.getElementById("SelectSupplier").innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open("POST","db/GetListOfSuppliers.php",true);
+		xmlhttp.open("POST","db/GetListOfSuppliers.php",false);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send(null);
 	}
@@ -1071,5 +1071,193 @@
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send(data);
 	
+	}
+	function InsertStaff()
+	{
+		var data = 'PubID='+document.getElementById("PubID").value+
+		'&JobID='+document.getElementById("JobID").value+
+		'&FName='+document.getElementById("FName").value+
+		'&SName='+document.getElementById("SName").value+
+		'&DOB='+document.getElementById("DOB").value+
+		'&Address='+document.getElementById("Address").value+
+		'&City='+document.getElementById("City").value+
+		'&Postcode='+document.getElementById("Postcode").value+
+		'&StartDate='+document.getElementById("StartDate").value+
+		'&Sortcode='+document.getElementById("Sortcode").value+
+		'&AccNumber='+document.getElementById("AccNumber").value+
+		'&Password='+document.getElementById("Password").value;
+
+		document.getElementById("insertstaff").reset();
+
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				alert(xmlhttp.responseText);
+			}
+		}
+		xmlhttp.open("POST","db/InsertIntoStaff.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
+	}
+	function getPubsForInsertStaff()
+	{	
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("PubID").innerHTML = xmlhttp.responseText;
+				if(document.getElementById("PubID").value!=0)document.getElementById("PubID").disabled=true;
+			}
+		}
+		xmlhttp.open("POST","db/GetListOfPubsForInsertUser.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
+	function getJobsForInsertStaff()
+	{	
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("JobID").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","db/GetListOfJobsForInsertUser.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
+	function InsertJob()
+	{
+
+		var data = 'Title='+document.getElementById("Title").value+
+		'&Rate='+document.getElementById("Rate").value+
+		'&AccLevel='+document.getElementById("AccessLevel").value;
+
+		document.getElementById("insertjob").reset();
+
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				alert("Job Inserted");
+			}
+		}
+		xmlhttp.open("POST","db/InsertIntoJob.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
+	}
+	function GetMenu()
+	{
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("navList").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","UIElements/GetMenuForUser.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
+	function GetDataTest()
+	{
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("TablesContent").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","DataTest.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
+	function GetStaffDetails()
+	{
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("tableStaffDetails").innerHTML = xmlhttp.responseText;
+				//$('#contentRight').show();
+			}
+		}
+		xmlhttp.open("POST","db/GetStaffDetailsTable.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
+	function GetUpdateStaffForm()
+	{
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("insertstaff").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","db/GetUpdateStaffDetailsForm.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+	}
+	function UpdateStaff()
+	{
+		var data = 'FName='+document.getElementById("FName").value+
+		'&SName='+document.getElementById("SName").value+
+		'&DOB='+document.getElementById("DOB").value+
+		'&Address='+document.getElementById("Address").value+
+		'&City='+document.getElementById("City").value+
+		'&Postcode='+document.getElementById("Postcode").value+
+		'&Sortcode='+document.getElementById("Sortcode").value+
+		'&AccNumber='+document.getElementById("AccNumber").value;
+
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				GetStaffDetails();
+				GetUpdateStaffForm();
+				$('#contentRight').hide();
+			}
+		}
+		xmlhttp.open("POST","db/UpdateStaff.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
 	}
 	

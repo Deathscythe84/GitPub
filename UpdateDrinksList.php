@@ -6,6 +6,7 @@ if($_SESSION["Login"]==false)
 	header('Location:index.php');
 }
 ?>
+<!DOCTYPE HTML5>
 <html>
 <head>
 <title>GitPub!</title>
@@ -29,9 +30,11 @@ if($_SESSION["Login"]==false)
 	<script>
 	window.onload=function()
 	{
+		GetMenu();
 		getDrinkListForNotPub();
 		getDrinkListForPub();
 		getDrinkTableForPub();
+		
 	};
 	</script>
 </head>

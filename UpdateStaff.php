@@ -26,13 +26,13 @@ if($_SESSION["Login"]==false)
 	<!-- Scripts -->
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- <script src="js/scripts.js"></script> -->
-
 	<script src="js/AJAX.js"></script>
 	<script>
-	window.onload = function()
+	window.onload= function () 
 	{
+		GetUpdateStaffForm();
+		GetStaffDetails();
 		GetMenu();
-		getFood();
 	}
 	</script>
 </head>
@@ -61,35 +61,28 @@ if($_SESSION["Login"]==false)
 				<div class="container">
 					<div class="row">
 						<div id="contentTitle" class="twelve columns">
-							<h3>Update Food</h3> <!--Content Title goes here!-->
+							<h3>Update Details</h3> <!--Content Title goes here!-->
 						</div>
 					</div>
 					<div class="row">
 						<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
-							<select id="FoodList" onchange="getFoodTableComponents()"></select>
-							
-							<table id='foodcomptable'><tr><th>Component</th><th>Quantity</th></tr></table>
+							<table id="tableStaffDetails"></table>
+							<button onclick="$('#contentRight').show();">Update</button>
 						</div>
 						<div id="contentRight" hidden class="one-half column"> <!--Display your content in this section-->
-							
-							<select id="FoodComponents"></select> 
-							<button type="button" onclick="RemoveFoodComponent()">Remove</button>
-							<hr>
-							
-							<form id="insertfoodcomp" action="javascript:addComponentToFood()">
+							<form id="insertstaff" method="post" action="javascript:UpdateStaff()">
 
-								<input type="hidden" id="FoodID" required/>
-							
-								Component:	</br>
-											<select required id="CompID">
-											</select>
-											
-								Quantity: 	</br><input type="text" id="quantity" pattern="[0-9]+" title="Can only contain numbers" required /></br>
-								<input type="submit" value="Add Component" />
+								<input type="text" id="FName" Placeholder="First Name" pattern="[A-Za-z]+" title="Can only contain letters" required />
+								<input type="text" id="SName" Placeholder="Surname" pattern="[A-Za-z]+" title="Can only contain letters" required />
+								<input type="date" id="DOB" Placeholder="DOB" pattern="[0-9].{3}-[0-9].{1}-[0-9].{1}" title="YYYY-MM-DD"/>
+								<input type="text" id="Address" Placeholder="Address" pattern="[A-Za-z0-9\s]+" title="Can only contain letters" />
+								<input type="text" id="City" Placeholder="City" pattern="[A-Za-z]+" title="Can only contain letters" />
+								<input type="text" id="Postcode" Placeholder="Postcode" pattern="[A-Za-z0-9]+" title="Can only contain letters and numbers" />
+								<input type="text" id="Sortcode" Placeholder="Sort Code" pattern="[0-9].{5}" title="Must contain 6 numbers" />
+								<input type="text" id="AccNumber" Placeholder="AccNumber" pattern="[0-9].{7}" title="Must contain 8 numbers" />
+								
+								</br><input type="submit" value="Update" />
 							</form>
-							
-							<hr>
-							<button type="button" onclick="RemoveFood()">Remove Food</button>
 						</div>
 					</div>
 				</div>

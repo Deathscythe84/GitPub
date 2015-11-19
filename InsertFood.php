@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+if($_SESSION["Login"]==false)
+{
+	header('Location:index.php');
+}
+?>
+<!DOCTYPE HTML5>
 <html>
 <head>
 	<?php
@@ -22,6 +31,12 @@
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- <script src="js/scripts.js"></script> -->
 	<script src="js/AJAX.js"></script>
+	<script>
+		window.onload=function()
+		{
+			GetMenu();
+		}
+	</script>
 </head>
 <body>
 	<div class="container">

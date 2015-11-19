@@ -6,6 +6,7 @@ if($_SESSION["Login"]==false)
 	header('Location:index.php');
 }
 ?>
+<!DOCTYPE HTML5>
 <html>
 <head>
 
@@ -31,6 +32,7 @@ if($_SESSION["Login"]==false)
 	{
 		getEntertainmentListForPub();
 		getEntertainmentTableForPub();
+		GetMenu();
 	}
 	</script>
 </head>

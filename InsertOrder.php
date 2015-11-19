@@ -6,6 +6,7 @@ if($_SESSION["Login"]==false)
 	header('Location:index.php');
 }
 ?>
+<!DOCTYPE HTML5>
 <html>
 <head>
 	<title>GitPub!</title>
@@ -26,8 +27,11 @@ if($_SESSION["Login"]==false)
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- <script src="js/scripts.js"></script> -->
 	<script src="js/AJAX.js"></script>
-	<script>
-	GetListOfSuppliers();
+	<script>window.onload=function()
+	{
+		GetListOfSuppliers();
+		GetMenu();
+	}
 	</script>
 </head>
 <body>

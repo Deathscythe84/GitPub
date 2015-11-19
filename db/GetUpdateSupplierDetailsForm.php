@@ -4,7 +4,7 @@ include "db.php";
 $SuppID = (int) $_POST["SuppID"];
 
 // SQL Insert using variable names
-$SupplierDetailsQuery = "select * From supplier Where Supplier_ID =".$SuppID;
+$SupplierDetailsQuery = "select * From supplierdetails Where SuppID =".$SuppID;
 $result = mysql_query($SupplierDetailsQuery,$db);
 mysql_close($db);
 

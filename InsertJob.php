@@ -1,10 +1,14 @@
+<?php 
+session_start();
+
+if($_SESSION["Login"]==false)
+{
+	header('Location:index.php');
+}
+?>
+<!DOCTYPE HTML5>
 <html>
 <head>
-<?php
-	include "db/db.php";
-
-	?>
-
 	<title>GitPub!</title>
 
 		<!-- CSS -->
@@ -23,6 +27,12 @@
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<!-- <script src="js/scripts.js"></script> -->
 		<script src="js/AJAX.js"></script>
+		<script>
+		window.onload=function()
+		{
+			GetMenu();
+		}
+	</script>
 	</head>
 <body>
 <div class="container">
@@ -53,13 +63,21 @@
 						</div>
 					</div>
 					<div class="row">
-						<form name="insertjob" method="post" action="db/InsertIntoJob.php">
+						<form id="insertjob" method="post" action="javascript:InsertJob()">
 							<!--Display your content in this section-->
 							<div id="contentLeft" class="one-half column"> 
 								<label for="Title">Job Title:</label>
-								<input type="text" name="Title" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
+								<input type="text" id="Title" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
 								<label for="Rate">Job Rate:</label> 
-								<input type="text" name="Rate" pattern="[0-9.]+" title="Can only contain numbers" required />
+								<input type="text" id="Rate" pattern="[0-9.]+" title="Can only contain numbers" required />
+								<label for="Level">Access Level:</label>
+								<select id="AccessLevel" required>
+									<option value=""></option>
+									<option value=0>1</option>
+									<option value=1>2</option>
+									<option value=2>3</option>
+									<option value=3>4</option>
+								</select>
 								</br></br>
 								<input type="submit" value="Insert" />
 							</div>

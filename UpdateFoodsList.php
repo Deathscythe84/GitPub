@@ -30,9 +30,11 @@ if($_SESSION["Login"]==false)
 	<script>
 	window.onload=function()
 	{
+		GetMenu();
 		getFoodListForNotPub();
 		getFoodListForPub();
 		getFoodTableForPub();
+		
 	};
 	</script>
 </head>

@@ -1,20 +1,14 @@
 <?php 
 session_start();
 
-// if($_SESSION["Login"]==false)
-// {
-	// header('Location:index.php');
-// }
+if($_SESSION["Login"]==false)
+{
+	header('Location:index.php');
+}
 ?>
 <!DOCTYPE HTML5>
 <html lang="en">
 <head>
-<?php
-	include "db/db.php";
-
-	$compquery = "select Component_ID,Component_Name From Component";
-	$compresult = mysql_query($compquery, $db);
-?>
 	<title>GitPub!</title>
 
 	<!-- CSS -->
@@ -34,6 +28,12 @@ session_start();
 	<!-- <script src="js/scripts.js"></script> -->
 
 	<script src="js/AJAX.js"></script>
+	<script>
+		window.onload=function()
+		{
+			GetMenu();
+		}
+	</script>
 </head>
 
 <body>

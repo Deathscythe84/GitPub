@@ -1,11 +1,12 @@
 <?php 
+session_start();
 include "db.php";
 
-$SuppID = (int) $_POST["SuppID"];
+$SID = $_SESSION["UserID"];
 
 // SQL Insert using variable names
-$SupplierDetailsQuery = "select * From supplierdetails Where SuppID =".$SuppID;
-$result = mysql_query($SupplierDetailsQuery,$db);
+$Query = "select * From listpersonaldetails Where Staff_ID =".$SID;
+$result = mysql_query($Query,$db);
 mysql_close($db);
 
 $row = mysql_fetch_row($result);
