@@ -2,7 +2,7 @@ html
 body{
 	background-image:url(../images/pub2.jpg);
 	background-size: cover;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 input, select, textarea { 
