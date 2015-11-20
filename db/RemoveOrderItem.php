@@ -8,7 +8,7 @@ $CID = $_POST["ComponentID"];
 mysql_query("CALL deleteOrderItem('$OID','$CID')", $db);
 $Total = mysql_query("CALL GetOrderTotal('$OID')",$db);
 $row=mysql_fetch_row($Total)[0];
-
+if($row==null)$row=0;
 mysql_close($db);
 include "db.php";
 

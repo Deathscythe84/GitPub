@@ -11,6 +11,7 @@ echo "
 		<ul>
 			<li class='subOption'><a href='InsertStaff.php'>Staff</a></li>
 			<li class='subOption'><a href='InsertDemoData.php'>Demographic Data</a></li>
+			<li class='subOption'><a href='InsertOrder.php'>Order</a></li>
 		</ul>
 	</li>
 

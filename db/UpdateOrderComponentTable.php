@@ -4,7 +4,11 @@ include "db.php";
 $OrderID = (int) $_POST["OrderID"];
 
 // SQL Insert using variable names
-$OrderCompQuery = "select c.Component_Name, d.Quantity From Component c INNER JOIN Order_Item d ON d.Component_ID = c.Component_ID Where Order_ID =".$OrderID;
+
+
+
+$OrderCompQuery = "select * from updateordercomptable where OID =".$OrderID;
+//$OrderCompQuery = "select c.Component_Name, d.Quantity From Component c INNER JOIN Order_Item d ON d.Component_ID = c.Component_ID Where Order_ID =".$OrderID;
 $OrderCompResult = mysql_query($OrderCompQuery,$db);
 mysql_close($db);
 

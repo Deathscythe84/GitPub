@@ -60,24 +60,24 @@ if($_SESSION["Login"]==false)
 				<div class="container">
 					<div class="row">
 						<div id="contentTitle" class="twelve columns">
-							<h3>Update Supplier Component</h3> <!--Content Title goes here!-->
+							<h3>Update Component Details</h3> <!--Content Title goes here!-->
 						</div>
 					</div>
 					<div class="row">
 						<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
-							<select id="SelectSupplier" onchange="javascript:GetSupplierComponentsTable()"></select>
-							<table id="tableSupplierComponents"></table>
+							<select id="SelectSupplier" onchange="javascript:GetSupplierComponentsList()"></select>
+                            </br>
+                            <select id="CompID" onchange="javascript:GetComponentDetailsForm()"></select>
 						</div>
 						<div id="contentRight" hidden class="one-half column"> <!--Display your content in this section-->
-							<form id="componentDetails" action="javascript:insertComponent()">
+							<form id="componentDetails" action="javascript:UpdateComponent()">
 							<label for="componentName">Component Name:</label>
 							<input type="text" pattern="[A-Za-z\s]+" title="Can only contain letters" required id="componentName" placeholder="..."/>
 							<label for="componentPrice">Price:</label>
 							<input type="number" step="0.01" pattern="[0-9]+" title="Can only contain numbers" required id="componentPrice" placeholder="..."/>
-							<input type="submit" value="Add">
+							</br>
+							<input type="submit" value="Update">
 							</form>
-							<hr>
-							<select id="CompID"></select><button type="button" onclick="javascript:RemoveComponent()">Delete</button>
 						</div>
 					</div>
 				</div>

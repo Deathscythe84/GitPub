@@ -27,13 +27,13 @@ if($_SESSION["Login"]==false)
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- <script src="js/scripts.js"></script> -->
 	<script src="js/AJAX.js"></script>
-	<script>window.onload= function () 
+	<script>
+	window.onload= function () 
 	{
 		GetMenu();
-		//GetDataTest("DataTest.php");
+		getJobs();
 	}
 	</script>
-	
 </head>
 
 <body>
@@ -46,43 +46,37 @@ if($_SESSION["Login"]==false)
 			</div>
 		</div>
 		<div class="row">
-		<div id="sideBar" class="two columns">
+			<div id="sideBar" class="two columns">
 				<!-- Navigation Options -->
 				<ul id="navList">
-					<li class="navOption"><a href="home.php">Home</a></li>
-
-					<li class="navOption">
-						<a href="#">Add</a>
-						<ul>
-							<li class="subOption"><a href="#">Sub 1</a></li>
-							<li class="subOption"><a href="#">Sub 2</a></li>
-							<li class="subOption"><a href="#">Sub 3</a></li>
-							<li class="subOption"><a href="#">Sub 4</a></li>
-						</ul>
-					</li>
-
-					<li class="navOption">
-						<a href="#">View</a>
-						<ul>
-							<li class="subOption"><a href="#">Sub 1</a></li>
-							<li class="subOption"><a href="#">Sub 2</a></li>
-							<li class="subOption"><a href="#">Sub 3</a></li>
-							<li class="subOption"><a href="#">Sub 4</a></li>
-						</ul>
-					</li>
-
-					<li class="navOption">
-						<a href="index.php">Logout</a>
-					</li>
+					<li class="navOption"><a href="#">Home</a></li>
+					<li class="navOption"><a href="#">Orders</a></li>
+					<li class="navOption"><a href="#">Search</a></li>
+					<li class="navOption"><a href="#">Gallery</a></li>
+					<li class="navOption"><a href="index.php">Logout</a></li>
 				</ul>
-				<img class="navDecor" src="images/octo.png">
 			</div>
-			<!-- Page Content -->
 			<div id="content" class="ten columns">
 				<div class="container">
 					<div class="row">
-						<div id="TablesContent" class="ten columns"> <!--Display your content in this section-->
+						<div id="contentTitle" class="twelve columns">
+							<h3>Update Job Details</h3> <!--Content Title goes here!-->
+						</div>
+					</div>
+					<div class="row">
+						<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
+							<select id="JobID" onchange="javascript:GetJobDetailsForm()"></select>
 							
+						</div>
+						<div id="contentRight" hidden class="one-half column"> <!--Display your content in this section-->
+							<form id="JobDetails" action="javascript:UpdateJob()">
+								<label for="Title">Job Title:</label>
+								<input type="text" id="Title" pattern="[A-Za-z\s]+" title="Can only contain letters" required />
+								<label for="Rate">Job Rate:</label> 
+								<input type="text" id="Rate" pattern="[0-9.]+" title="Can only contain numbers" required />
+								</br></br>
+								<input type="submit" value="Update" />
+							</form>
 						</div>
 					</div>
 				</div>

@@ -6,7 +6,7 @@ include "db.php";
 $PID = $_SESSION["PubID"];
 
 // SQL Insert using variable names
-$DrinkListQuery = "Select F.Drink_Name, FL.Price From Drink F inner Join Drinks_List FL ON F.Drink_ID = FL.Drink_ID Where FL.Pub_ID = $PID";
+$DrinkListQuery = "Select * From drinkmenu Where Pub_ID = $PID";
 $DrinkListResult = mysql_query($DrinkListQuery,$db);
 mysql_close($db);
 

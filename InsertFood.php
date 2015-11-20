@@ -98,7 +98,7 @@ if($_SESSION["Login"]==false)
 											<select required id="CompID">
 											</select>
 											</br>
-								Quantity: 	</br><input type="text" id="quantity" pattern="[0-9]+" title="Can only contain numbers" required /></br>
+								Quantity: 	</br><input type="text" id="quantity" pattern="[1-9][0-9]*" title="Can only contain numbers and must be greater than 0" required /></br>
 								<input type="submit" value="Add Component" />
 							</form>
 						</div>

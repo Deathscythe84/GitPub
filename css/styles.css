@@ -42,7 +42,7 @@ input, select, textarea {
 
 input[type=date]{
 	color:black;
-	font-family: Raleway-Light;
+	font-family: Raleway-Medium;
 }
 
 input[type=submit],button{

@@ -7,9 +7,10 @@ echo "
 	</li>
 	
 	<li class='navOption'>
-	<a href='#'>Tables</a>
+	<a href='Tables.php'>Tables</a>
 		<ul>
-			<li class='subOption'><a href='Tables.php'>TablePage</a></li>
+			<li class='subOption' onclick=GetDataTest('DataTest.php');>List Drinks</li>
+			<li class='subOption' onclick=GetDataTest('db/GetRevenue.php');>List Revenue</li>
 			
 		</ul>
 	</li>

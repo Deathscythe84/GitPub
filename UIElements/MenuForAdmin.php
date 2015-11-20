@@ -23,8 +23,10 @@ echo "
 		<ul>
 			<li class='subOption'><a href='UpdateDrinkComponents.php'>Drinks</a></li>
 			<li class='subOption'><a href='UpdateFoodComponents.php'>Food</a></li>
+			<li class='subOption'><a href='UpdateJob.php'>Jobs</a></li>
 			<li class='subOption'><a href='UpdateSupplier.php'>Suppliers</a></li>
-			<li class='subOption'><a href='UpdateComponent.php'>Supplier Goods</a></li>
+			<li class='subOption'><a href='InsertComponent.php'>Supplier Goods</a></li>
+			<li class='subOption'><a href='UpdateComponent.php'>Components</a></li>
 		</ul>
 	</li>
 

@@ -80,7 +80,7 @@ if($_SESSION["Login"]==false)
 							</form>
 							
 							<hr>
-							<label for="DrinkAtPub">Food:</label>
+							<label for="DrinkAtPub">Drink:</label>
 							<select id="DrinkAtPub" required>
 							</select>
 							<button type="button" onclick="RemoveDrinkItem();">Remove Drink Item</button>

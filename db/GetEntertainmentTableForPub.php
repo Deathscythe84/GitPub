@@ -6,7 +6,7 @@ include "db.php";
 $PID = $_SESSION["PubID"];
 
 // SQL Insert using variable names
-$EntertainmentTableQuery = "Select Entertainment_Type,Entertainment_Name,Entertainment_Cost,Cost_Duration From Entertainment Where Pub_ID = $PID";
+$EntertainmentTableQuery = "Select * From viewentertainment Where Pub_ID = $PID";
 $EntertainmentTableResult = mysql_query($EntertainmentTableQuery,$db);
 mysql_close($db);
 

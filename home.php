@@ -83,10 +83,7 @@ if($_SESSION["Login"]==false)
 				<div class="container">
 					<div class="row">
 						<div id="homeShowcase" class="twelve columns">
-							<h1>Like if its a big fuckton table then style it differently to the personal details one?
-								Also, try and keep the original menu structure, make extra options sub-options.
-								Personal Details is like to update them, isnt that a main one?
-								but yeah for the others i will keep the main ones to a minimum
+							<h1>
 							</h1> <!--Content Title goes here!-->
 						</div>
 					</div>

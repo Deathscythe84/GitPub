@@ -97,7 +97,7 @@ if($_SESSION["Login"]==false)
 								<label for="AccNumber">Account Number:</label>
 								<input type="text" id="AccNumber" pattern="[0-9].{7}" title="Must contain 8 numbers" />
 								<label for="Password">Password:</label>
-								<input type="text" id="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/>
+								<input type="text" id="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="At least one number, upper and lower case letter, and minimum eight characters"required/>
 								</br>
 								<input type="submit" value="Insert" />
 							</div>

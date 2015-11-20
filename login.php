@@ -22,6 +22,7 @@ else
 			$_SESSION["UserID"]=$UID;
 			$_SESSION["PubID"]=$row["Pub_ID"];
 			$_SESSION["AccLev"]=$row["Access_Level"];
+			$_SESSION["Db"]="db"+$_SESSION["AccLev"]+".php";
 			header('Location:home.php');
 		}
 		else

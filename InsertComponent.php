@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 
 if($_SESSION["Login"]==false)
@@ -7,7 +7,7 @@ if($_SESSION["Login"]==false)
 }
 ?>
 <!DOCTYPE HTML5>
-<html>
+<html lang="en">
 <head>
 	<title>GitPub!</title>
 
@@ -27,15 +27,17 @@ if($_SESSION["Login"]==false)
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- <script src="js/scripts.js"></script> -->
 	<script src="js/AJAX.js"></script>
-	<script>window.onload=function()
+	<script>
+	window.onload= function () 
 	{
 		GetListOfSuppliers();
 		GetMenu();
 	}
 	</script>
 </head>
+
 <body>
-<div class="container">
+	<div class="container">
 		<div class="row">
 			<div id="titleBar"class="twelve columns">
 				<div class="logo">
@@ -58,41 +60,24 @@ if($_SESSION["Login"]==false)
 				<div class="container">
 					<div class="row">
 						<div id="contentTitle" class="twelve columns">
-							<!--Content Title goes here!-->
-							<h3>Insert Order</h3> 
+							<h3>Update Supplier Component</h3> <!--Content Title goes here!-->
 						</div>
 					</div>
 					<div class="row">
-						<!--Display your content in this section-->
-						<div id="contentLeft" class="one-half column">
-						<form name="insertorder" method="post" action="javascript:InsertOrder()">
-							<label for="SelectSupplier">Supplier:</label> 
-							<select id="SelectSupplier" required></select>
-							<input id="PubID" type="hidden" value="<?php echo $_SESSION["PubID"] ?>" />
-							</br>
-							<input type="submit" value="Create Order" />
-						</form>
+						<div id="contentLeft" class="one-half column"> <!--Display your content in this section-->
+							<select id="SelectSupplier" onchange="javascript:GetSupplierComponentsTable()"></select>
+							<table id="tableSupplierComponents"></table>
 						</div>
-						<!--Display your content in this section-->
-						<div id="contentRight" hidden class="one-half column">
-						
-							<select id="OrderComponents"></select> 
-							<button type="button" onclick="RemoveOrderComponent()">Remove</button>
+						<div id="contentRight" hidden class="one-half column"> <!--Display your content in this section-->
+							<form id="componentDetails" action="javascript:insertComponent()">
+							<label for="componentName">Component Name:</label>
+							<input type="text" pattern="[A-Za-z\s]+" title="Can only contain letters" required id="componentName" placeholder="..."/>
+							<label for="componentPrice">Price:</label>
+							<input type="number" step="0.01" pattern="[0-9]+" title="Can only contain numbers" required id="componentPrice" placeholder="..."/>
+							<input type="submit" value="Add">
+							</form>
 							<hr>
-							
-						<form name="insertorderitem" method="post" action="javascript:InsertOrderItem()">
-							<label for="ComponentID">Component Name</label>
-							<select id="ComponentID"required></select>
-							
-							<label for="Quantity">Quantity:</label>
-							<input type="text" id="Quantity" pattern="[1-9][0-9]*" title="Can only contain numbers and must be greater than 0" required/></br>
-							</br>
-							<input type="submit" value="Insert" />
-						</form>
-						
-						<hr>
-						<button type="button" onclick="RemoveOrder()">Cancel Order</button>
-						
+							<select id="CompID"></select><button type="button" onclick="javascript:RemoveComponent()">Delete</button>
 						</div>
 					</div>
 				</div>

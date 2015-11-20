@@ -12,7 +12,7 @@ if($PID!=0)
 }
 else
 	{
-	$pubquery = "select Pub_ID,Pub_Name From Pub";
+	$pubquery = "select * From viewpub";
 	$pubresult = mysql_query($pubquery, $db);
 	mysql_close($db);
 

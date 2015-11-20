@@ -1180,7 +1180,7 @@
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send(null);
 	}
-	function GetDataTest()
+	function GetDataTest(url)
 	{
 		if(window.XMLHttpRequest){
 			xmlhttp = new XMLHttpRequest();
@@ -1193,7 +1193,7 @@
 				document.getElementById("TablesContent").innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open("POST","DataTest.php",true);
+		xmlhttp.open("POST",url,true);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send(null);
 	}
@@ -1259,5 +1259,122 @@
 		xmlhttp.open("POST","db/UpdateStaff.php",true);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send(data);
+	}
+	function GetComponentDetailsForm()
+	{
+		if(document.getElementById("CompID").value!="")
+		{
+		var data = 'CompID='+document.getElementById("CompID").value;
+
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("componentDetails").innerHTML = xmlhttp.responseText;
+				$('#contentRight').show();
+			}
+		}
+		xmlhttp.open("POST","db/GetUpdateComponentDetailsForm.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
+		}
+		else
+		{
+			document.getElementById("componentDetails").innerHTML = "";
+			$('#contentRight').hide();
+		}
+	}
+	function UpdateComponent()
+	{
+		var data = 'componentName='+document.getElementById("componentName").value+
+		'&componentPrice='+document.getElementById("componentPrice").value+
+		'&CompID='+document.getElementById("CompID").value;
+		
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				$('#contentRight').hide();
+				GetSupplierComponentsList();
+			}
+		}
+		xmlhttp.open("POST","db/UpdateComponent.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
+	}
+	function GetJobDetailsForm()
+	{
+		if(document.getElementById("JobID").value!="")
+		{
+		var data = 'JobID='+document.getElementById("JobID").value;
+
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("JobDetails").innerHTML = xmlhttp.responseText;
+				$('#contentRight').show();
+			}
+		}
+		xmlhttp.open("POST","db/GetUpdateJobDetailsForm.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
+		}
+		else
+		{
+			document.getElementById("JobDetails").innerHTML = "";
+			$('#contentRight').hide();
+		}
+	}
+	function UpdateJob()
+	{
+		var data = 'Job_Title='+document.getElementById("Title").value+
+		'&Pay_Rate='+document.getElementById("Rate").value+
+		'&JobID='+document.getElementById("JobID").value;
+		
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				$('#contentRight').hide();
+				getJobs();
+			}
+		}
+		xmlhttp.open("POST","db/UpdateJob.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(data);
+	}
+	function getJobs()
+	{	
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange= function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+				document.getElementById("JobID").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","db/GetListOfJobs.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(null);
 	}
 	
